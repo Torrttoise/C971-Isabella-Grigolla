@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace C971_Isabella_Grigolla.Models
 {
-    public class TermOverview
+    public class Term
     {
         [PrimaryKey, AutoIncrement]
 
