@@ -47,23 +47,52 @@ namespace C971_Isabella_Grigolla.Services
         public static async Task AddNotes(string title, string description)
         {
             await init();
+            var course = new CourseNotes
+            {
+                Title = title,
+                Description = description
+
+            };
+
         }
 
         public static async Task RemoveNotes(int id)
         {
             await init();
+
+            await _datab.DeleteAsync<CourseNotes>(id);
         }
 
 
-        public static async Task GetNotes()
+        public static async Task<IEnumerable<CourseNotes>> GetNotes()
         {
             await init();
+
+            var notes = await _datab.Table<CourseNotes>().ToListAsync();
+            return notes;
         }
 
 
         public static async Task UpdateNotes(int id, string title, string description)
         {
             await init();
+
+            var notesUpdateQuery = await _datab.Table<CourseNotes>()
+                .Where(i => i.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (notesUpdateQuery != null)
+            {
+                notesUpdateQuery.Id = id;
+                notesUpdateQuery.Title = title;
+                notesUpdateQuery.Description = description;
+
+                await _datab.UpdateAsync(notesUpdateQuery);
+
+            };
+
+            
+                    
         }
 
 
@@ -97,17 +126,41 @@ namespace C971_Isabella_Grigolla.Services
         public static async Task RemoveCourse(int id)
         {
             await init();
+
+            await _datab.DeleteAsync<CourseView>(id);
+
         }
 
 
-        public static async Task GetCourses()
+        public static async Task<IEnumerable<CourseView>> GetCourses()
         {
             await init();
+
+            var courses = await _datab.Table<CourseView>().ToListAsync();
+            return courses;
         }
 
-        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, Picker status, string courseInstructorName, int courseInstructorPhone, string couseInstructorEmail)
+        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, Picker status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail)
         {
             await init();
+
+            var courseUpdateQuery = await _datab.Table<CourseView>()
+                .Where(i => i.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (courseUpdateQuery != null)
+            {
+                courseUpdateQuery.Id = id;
+                courseUpdateQuery.Name = name;
+                courseUpdateQuery.StartDate = startDate;
+                courseUpdateQuery.EndDate = endDate;
+                courseUpdateQuery.Status = status;
+                courseUpdateQuery.CourseInstructorName = courseInstructorName;
+                courseUpdateQuery.CourseInstructorPhone = courseInstructorPhone;
+                courseUpdateQuery.CourseInstructorEmail = courseInstructorEmail;
+
+                await _datab.UpdateAsync(courseUpdateQuery);
+            }
         }
 
 
@@ -182,24 +235,62 @@ namespace C971_Isabella_Grigolla.Services
         public static async Task AddAssessment(int courseId, string name, Picker typeOfAssessment, DateTime startDate, DateTime endDate)
         {
             await init();
+
+            var assessment = new CourseAssessments()
+            {
+                CourseId = courseId,
+                Name = name,
+                TypeOfAssessment = typeOfAssessment,
+                StartDate = startDate,
+                EndDate = endDate
+            };
+            await _datab.InsertAsync(assessment);
+
+            var id = assessment.Id;
+
         }
        
 
         public static async Task RemoveAssessment(int id)
         {
             await init();
+
+            await _datab.DeleteAsync<CourseAssessments>(id);
+
         }
 
 
-        public static async Task GetAssessments()
+        public static async Task<IEnumerable<CourseAssessments>> GetAssessments()
         {
             await init();
+
+            var assessments = await _datab.Table<CourseAssessments>().ToListAsync();
+            return assessments;
+
         }
 
 
         public static async Task UpdateAssessment(int id, int courseId, string name, Picker typeOfAssessment, DateTime startDate, DateTime endDate)
         {
             await init();
+
+            var assessmentUpdateQuery = await _datab.Table<CourseAssessments>()
+               .Where(i => i.Id == id)
+               .FirstOrDefaultAsync();
+
+
+            if (assessmentUpdateQuery != null)
+            {
+                assessmentUpdateQuery.Id = id;
+                assessmentUpdateQuery.Name = name;
+                assessmentUpdateQuery.TypeOfAssessment = typeOfAssessment;
+                assessmentUpdateQuery.StartDate = startDate;
+                assessmentUpdateQuery.EndDate = endDate;
+
+                await _datab.UpdateAsync(assessmentUpdateQuery);
+            }
+
+
         }
          
 
