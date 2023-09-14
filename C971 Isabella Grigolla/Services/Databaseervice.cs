@@ -54,6 +54,8 @@ namespace C971_Isabella_Grigolla.Services
 
             };
 
+            var id = course.Id;
+
         }
 
         public static async Task RemoveNotes(int id)
@@ -292,7 +294,55 @@ namespace C971_Isabella_Grigolla.Services
 
 
         }
-         
+
+
+        #endregion
+
+
+        #region Demo Information
+
+        public static async void LoadSampleData()
+        {
+            await init();
+
+
+            Term term1 = new Term
+            {
+
+                Name = "Term 1",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddMonths(4),
+            };
+
+            await _datab.InsertAsync(term1);
+
+            CourseView course1 = new CourseView
+            {
+                TermId = term1.Id,
+                Name = "Course 1",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddMonths(1),
+                Status = "In Progress",
+
+
+
+            };
+
+
+
+        }
+
+        public static async void ClearSampleData()
+        {
+
+        }
+
+
+        public static async void LoadSampleDataSql()
+        {
+
+        }
+
 
         #endregion
 
