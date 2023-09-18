@@ -432,8 +432,18 @@ namespace C971_Isabella_Grigolla.Services
 
         }
 
-        public static async void ClearSampleData()
+        public static async Task ClearSampleData()
         {
+            await init();
+
+            await _datab.DropTableAsync<Term>();
+            await _datab.DropTableAsync<CourseView>();
+            await _datab.DropTableAsync<CourseNotes>();
+            await _datab.DropTableAsync<CourseAssessments>();
+
+            _datab = null;
+
+            _databConnection = null;
 
         }
 
