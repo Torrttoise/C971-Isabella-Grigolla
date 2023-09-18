@@ -15,7 +15,7 @@ namespace C971_Isabella_Grigolla.Models
         public int Id { get; set; }
         public int CourseId { get; set;}
         public string Name { get; set; }
-        public Picker TypeOfAssessment { get; set; }
+        public string TypeOfAssessment { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         //public DateTime StartDatePA { get; set; }

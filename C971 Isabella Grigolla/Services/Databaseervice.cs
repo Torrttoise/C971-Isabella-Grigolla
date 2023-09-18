@@ -39,20 +39,23 @@ namespace C971_Isabella_Grigolla.Services
         }
 
 
-
+        /////////////////// Beginning of Regions ///////////////////
 
         #region CourseNotes methods
 
 
-        public static async Task AddNotes(string title, string description)
+        public static async Task AddNotes(string title, int courseId, string description)
         {
             await init();
             var course = new CourseNotes
             {
                 Title = title,
+                CourseId = courseId,
                 Description = description
 
             };
+
+            await _datab.InsertAsync(course);
 
             var id = course.Id;
 
@@ -66,16 +69,16 @@ namespace C971_Isabella_Grigolla.Services
         }
 
 
-        public static async Task<IEnumerable<CourseNotes>> GetNotes()
+        public static async Task<IEnumerable<CourseNotes>> GetNotes(int courseId)
         {
             await init();
 
-            var notes = await _datab.Table<CourseNotes>().ToListAsync();
+            var notes = await _datab.Table<CourseNotes>().Where(i => i.CourseId == courseId).ToListAsync();
             return notes;
         }
 
 
-        public static async Task UpdateNotes(int id, string title, string description)
+        public static async Task UpdateNotes(int id, int courseId, string title, string description)
         {
             await init();
 
@@ -104,7 +107,7 @@ namespace C971_Isabella_Grigolla.Services
 
         #region CourseView methods
 
-        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate, Picker status, string courseInstructorName, int courseInstructorPhone, string couseInstructorEmail)
+        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string couseInstructorEmail)
         {
             await init();
             var course = new CourseView
@@ -134,15 +137,15 @@ namespace C971_Isabella_Grigolla.Services
         }
 
 
-        public static async Task<IEnumerable<CourseView>> GetCourses()
+        public static async Task<IEnumerable<CourseView>> GetCourses(int termId)
         {
             await init();
 
-            var courses = await _datab.Table<CourseView>().ToListAsync();
+            var courses = await _datab.Table<CourseView>().Where(i => i.TermId == termId).ToListAsync();
             return courses;
         }
 
-        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, Picker status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail)
+        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail)
         {
             await init();
 
@@ -234,7 +237,7 @@ namespace C971_Isabella_Grigolla.Services
         #region CourseAssessment methods
 
 
-        public static async Task AddAssessment(int courseId, string name, Picker typeOfAssessment, DateTime startDate, DateTime endDate)
+        public static async Task AddAssessment(int courseId, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
         {
             await init();
 
@@ -262,17 +265,17 @@ namespace C971_Isabella_Grigolla.Services
         }
 
 
-        public static async Task<IEnumerable<CourseAssessments>> GetAssessments()
+        public static async Task<IEnumerable<CourseAssessments>> GetAssessments(int courseId)
         {
             await init();
 
-            var assessments = await _datab.Table<CourseAssessments>().ToListAsync();
+            var assessments = await _datab.Table<CourseAssessments>().Where(i => i.CourseId == courseId).ToListAsync();
             return assessments;
 
         }
 
 
-        public static async Task UpdateAssessment(int id, int courseId, string name, Picker typeOfAssessment, DateTime startDate, DateTime endDate)
+        public static async Task UpdateAssessment(int id, int courseId, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
         {
             await init();
 
@@ -316,19 +319,116 @@ namespace C971_Isabella_Grigolla.Services
 
             await _datab.InsertAsync(term1);
 
-            CourseView course1 = new CourseView
-            {
-                TermId = term1.Id,
-                Name = "Course 1",
-                StartDate = DateTime.Now,
-                EndDate = DateTime.Now.AddMonths(1),
-                Status = "In Progress",
+                    CourseView course1 = new CourseView
+                    {
+                        TermId = term1.Id,
+                        Name = "Course 1",
+                        StartDate = DateTime.Now,
+                        EndDate = DateTime.Now.AddMonths(1),
+                        Status = "In Progress",
+                        CourseInstructorId = 3,
+                        CourseInstructorName = "Isabella Grigolla",
+                        CourseInstructorPhone = 626-253-7474,
+                        CourseInstructorEmail = "igrigol@wgu.edu"
+
+                    };
+                
+                        CourseNotes notes1 = new CourseNotes
+                        {
+                            CourseId = course1.Id,
+                            Title = "Steps on continuing towards progress.",
+                            Description = "1.Test /n 2.Knowledge /n 3.Marriage /n"
+                        };
+
+                        CourseAssessments assessment1 = new CourseAssessments
+                        {
+                            CourseId = course1.Id,
+                            Name = "Title of Practice Assessment",
+                            TypeOfAssessment = "PA",
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddMonths(1)
+
+                        };
+
+                        CourseAssessments assessment2 = new CourseAssessments
+                        {
+                            CourseId = course1.Id,
+                            Name = "Title of Objective Assessment",
+                            TypeOfAssessment = "OA",
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddMonths(1)
+                        };
+
+                    CourseView course2 = new CourseView
+                    {
+                        TermId = term1.Id,
+                        Name = "Course 2",
+                        StartDate = DateTime.Now.AddMonths(2),
+                        EndDate = DateTime.Now.AddMonths(3),
+                        Status = "Planned",
+                        CourseInstructorId = 3,
+                        CourseInstructorName = "Isabella Grigolla",
+                        CourseInstructorPhone = 626 - 253 - 7474,
+                        CourseInstructorEmail = "igrigol@wgu.edu"
+
+                    };
+
+                        CourseNotes notes2 = new CourseNotes
+                        {
+                            CourseId = course2.Id,
+                            Title = "I am a note from the future.",
+                            Description = "October 25th 1985."
+                        };
+
+                        CourseAssessments assessment3 = new CourseAssessments
+                        {
+                            CourseId = course2.Id,
+                            Name = "Title of Practice Assessment",
+                            TypeOfAssessment = "PA",
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddMonths(1)
+
+                        };
+
+                        CourseAssessments assessment4 = new CourseAssessments
+                        {
+                            CourseId = course2.Id,
+                            Name = "Title of Objective Assessment",
+                            TypeOfAssessment = "OA",
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddMonths(1)
+                        };
 
 
+                    CourseView course3 = new CourseView
+                    {
+                        TermId = term1.Id,
+                        Name = "Course 3",
+                        StartDate = DateTime.Now.AddMonths(-2),   ////Test of negative addition to add months.
+                        EndDate = DateTime.Now.AddMonths(-3),
+                        Status = "Completed",
+                        CourseInstructorId = 3,
+                        CourseInstructorName = "Isabella Grigolla",
+                        CourseInstructorPhone = 626 - 253 - 7474,
+                        CourseInstructorEmail = "igrigol@wgu.edu"
 
-            };
+                    };
 
+            /*
+                    CourseView course4 = new CourseView
+                    {
+                        TermId = term1.Id,
+                        Name = "Course 4",
+                        StartDate = DateTime.Now.AddMonths(-2) ,   ////Test of negative addition to add months.
+                        EndDate = DateTime.Now.AddMonths(-3),
+                        Status = "Completed",
+                        CourseInstructorId = 3,
+                        CourseInstructorName = "Isabella Grigolla",
+                        CourseInstructorPhone = 626 - 253 - 7474,
+                        CourseInstructorEmail = "igrigol@wgu.edu"
 
+                    };
+            */
 
         }
 
@@ -346,6 +446,8 @@ namespace C971_Isabella_Grigolla.Services
 
         #endregion
 
+
+        /////////////////// End of Regions ///////////////////
 
     }
 }

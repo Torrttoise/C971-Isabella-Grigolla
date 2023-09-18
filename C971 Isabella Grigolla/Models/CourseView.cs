@@ -17,9 +17,10 @@ namespace C971_Isabella_Grigolla.Models
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public List<string> Status { get; set; }
-        //public Picker Status { get; set; }
+        //public List<string> Status { get; set; }
+        public string Status { get; set; }
 
+        /*
         public void pickerSource()
         {
             var pickerList = new List<string>();
@@ -29,12 +30,13 @@ namespace C971_Isabella_Grigolla.Models
 
             Status = pickerList;
         }
+        */
         public int CourseInstructorId { get; set; }
         public string CourseInstructorName { get; set; }
-        public int CourseInstructorPhone { get; set; }
+        public long CourseInstructorPhone { get; set; }
         public string CourseInstructorEmail { get; set; }
 
-        private static SQLiteAsyncConnection _datab;
+        //private static SQLiteAsyncConnection _datab;
 
     }
 
