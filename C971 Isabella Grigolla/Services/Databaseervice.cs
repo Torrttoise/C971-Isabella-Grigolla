@@ -447,12 +447,12 @@ namespace C971_Isabella_Grigolla.Services
 
         }
 
-
+        /*
         public static async void LoadSampleDataSql()
         {
 
         }
-
+        */
 
         #endregion
 

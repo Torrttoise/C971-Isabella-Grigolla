@@ -11,7 +11,7 @@ namespace C971_Isabella_Grigolla
         {
             InitializeComponent();
 
-            var mainDashboard = new CourseInfo();
+            var mainDashboard = new Dashboard();
             var mainNavPage = new NavigationPage(mainDashboard);
             MainPage = mainNavPage;
         }
