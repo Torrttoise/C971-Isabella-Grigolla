@@ -457,6 +457,20 @@ namespace C971_Isabella_Grigolla.Services
         #endregion
 
 
+
+        #region Counts
+
+        public static async Task<int> GetClassCountAsync(int selectedTermId)
+        {
+            int classCounts = await _datab.ExecuteScalarAsync<int>($"Select Count(*) from CourseView where TermId = ?", selectedTermId);
+
+            return classCounts;
+        }
+
+
+
+        #endregion
+
         /////////////////// End of Regions ///////////////////
 
     }

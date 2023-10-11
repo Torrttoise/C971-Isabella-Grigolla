@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using Xamarin.Forms;
 
+
 namespace C971_Isabella_Grigolla.Models
 {
     public class Term
