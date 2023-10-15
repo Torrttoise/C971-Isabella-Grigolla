@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.LocalNotifications;
 
 namespace C971_Isabella_Grigolla.Views
 {
@@ -17,7 +17,19 @@ namespace C971_Isabella_Grigolla.Views
 
 		private readonly int _selectedTermId;
 
-		//protected override async void OnAppearing()
+		protected override async void OnAppearing()
+		{
+			base.OnAppearing();
+
+
+			int countCourses = await Databaseervice.GetCourseCountAsync(_selectedTermId);
+
+			CountLabel.Text = countCourses.ToString();
+
+			ClassCollectionView.ItemsSource = await Databaseervice.GetCourses(_selectedTermId);
+
+
+		}
 
 
 		public TermEdit()
@@ -90,22 +102,21 @@ namespace C971_Isabella_Grigolla.Views
 
 		}
 
-		// async void AddClass_OnClicked(object sender, EventArgs e)
-		//{
+		async void AddCourse_OnClicked(Object sender, EventArgs e)
+		{
+			var termId = Int32.Parse(TermID.Text);
 
-		//}
+			await Navigation.PushAsync(new CourseAdd(termId));
+		}
 
-        //		cancelterm
+        async void CourseCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+			var course = (CourseView)e.CurrentSelection.FirstOrDefault();
 
-
-
-
-        //		deleteterm
-
-
-
-
-
-
+			if (e.CurrentSelection != null) 
+			{
+				await Navigation.PushAsync((new CourseEdit(course)));
+			}
+        }
     }
 }

@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("C971_Isabella_Grigolla.Views.Dashboard.xaml", "Views/Dashboard.xaml", typeof(global::C971_Isabella_Grigolla.Views.TermOverview))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("C971_Isabella_Grigolla.Views.CourseEdit.xaml", "Views/CourseEdit.xaml", typeof(global::C971_Isabella_Grigolla.Views.CourseEdit))]
 
 namespace C971_Isabella_Grigolla.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\Dashboard.xaml")]
-    public partial class TermOverview : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\CourseEdit.xaml")]
+    public partial class CourseEdit : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(TermOverview));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CourseEdit));
         }
     }
 }

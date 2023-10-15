@@ -47,13 +47,13 @@
             <Label Text="_________________________________"></Label>
 
 
-                
 
-            <CollectionView x:Name="ClassCollectionView"
+
+            <CollectionView x:Name="CourseCollectionView"
             ItemsSource="{Binding CourseView}"
             EmptyView="No Classes to display."
             SelectionMode="Single"
-            SelectionChanged="ClassCollectionView_SelectionChanged">
+            SelectionChanged="CourseCollectionView_SelectionChanged">
 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
