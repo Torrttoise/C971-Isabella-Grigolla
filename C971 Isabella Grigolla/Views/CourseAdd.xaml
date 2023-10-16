@@ -36,6 +36,9 @@
                 <Label Text="{Binding Name}"
            x:Name="ClassName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
+                <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
+                <Entry Text="{Binding ID}" x:Name="TermID" Placeholder="Enter Term ID for this Course." Grid.Row="0" Grid.Column="3" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
+
 
                 <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Status</Label>
                 <Picker Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="ClassStatusPicker"

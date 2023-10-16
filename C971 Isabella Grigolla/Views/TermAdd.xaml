@@ -29,11 +29,8 @@
                 <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
                 <Entry Text="{Binding Name}" x:Name="TermName" Placeholder="Enter Term Name." FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
 
-                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
-                <Entry Text="{Binding ID}" x:Name="TermID" Placeholder="Enter Term ID." Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
-
-                <DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker" FontSize="Medium"></DatePicker>
-                <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker" FontSize="Medium"></DatePicker>
+                <DatePicker Grid.Row="1" Grid.Column="1" x:Name="StartDatePicker" FontSize="Medium"></DatePicker>
+                <DatePicker Grid.Row="2" Grid.Column="1" x:Name="EndDatePicker" FontSize="Medium"></DatePicker>
 
             </Grid>
             

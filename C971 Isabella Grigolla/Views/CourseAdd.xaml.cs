@@ -66,19 +66,19 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.UpdateTerm(Int32.Parse(TermID.Text), ClassName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()));
+            await Databaseervice.AddCourse(_selectedTermId, ClassName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), ClassStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text));
 
             await Navigation.PopAsync();
         }
 
-        private void CancelCourse_Clicked(object sender, EventArgs e)
+        private async void CancelCourse_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PopAsync();
         }
 
-        private void Home_Clicked(object sender, EventArgs e)
+        private async void Home_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PopToRootAsync();
         }
     }
 }
