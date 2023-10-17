@@ -35,9 +35,8 @@ namespace C971_Isabella_Grigolla.Models
         public string CourseInstructorName { get; set; }
         public long CourseInstructorPhone { get; set; }
         public string CourseInstructorEmail { get; set; }
-
+        public DateTime DateofCreation { get; set; }
         public string Notes { get; set; }
-
         public bool Notifications { get; set; }
 
         //private static SQLiteAsyncConnection _datab;

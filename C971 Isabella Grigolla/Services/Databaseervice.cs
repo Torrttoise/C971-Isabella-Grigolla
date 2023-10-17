@@ -107,7 +107,7 @@ namespace C971_Isabella_Grigolla.Services
 
         #region CourseView methods
 
-        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string couseInstructorEmail)
+        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string couseInstructorEmail, string notes, bool notifications)
         {
             await init();
             var course = new CourseView
@@ -119,7 +119,9 @@ namespace C971_Isabella_Grigolla.Services
                 Status = status,
                 CourseInstructorName = courseInstructorName,
                 CourseInstructorPhone = courseInstructorPhone,
-                CourseInstructorEmail = couseInstructorEmail
+                CourseInstructorEmail = couseInstructorEmail,
+                Notes = notes,
+                Notifications = notifications
             };
 
             await _datab.InsertAsync(course);
@@ -145,7 +147,7 @@ namespace C971_Isabella_Grigolla.Services
             return courses;
         }
 
-        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail)
+        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail, string notes, bool notifications)
         {
             await init();
 
@@ -163,6 +165,8 @@ namespace C971_Isabella_Grigolla.Services
                 courseUpdateQuery.CourseInstructorName = courseInstructorName;
                 courseUpdateQuery.CourseInstructorPhone = courseInstructorPhone;
                 courseUpdateQuery.CourseInstructorEmail = courseInstructorEmail;
+                courseUpdateQuery.Notes = notes;
+                courseUpdateQuery.Notifications = notifications;
 
                 await _datab.UpdateAsync(courseUpdateQuery);
             }

@@ -13,3 +13,5 @@ C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\De
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.AssemblyInfoInputs.cache
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.AssemblyInfo.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.csproj.CoreCompileInputs.cache
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\CourseAdd.xaml.g.cs
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\TermAdd.xaml.g.cs
