@@ -436,7 +436,7 @@ namespace C971_Isabella_Grigolla.Services
 
         }
 
-        public static async Task ClearSampleData()
+        public static async Task WipeSampleData()
         {
             await init();
 

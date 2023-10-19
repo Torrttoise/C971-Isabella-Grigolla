@@ -1,4 +1,5 @@
-﻿using C971_Isabella_Grigolla.Views;
+﻿using C971_Isabella_Grigolla.Services;
+using C971_Isabella_Grigolla.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,16 @@ namespace C971_Isabella_Grigolla
         {
             InitializeComponent();
 
-            var mainDashboard = new Dashboard();
+
+
+
+            if(SettingC971.FirstTimeRunning) 
+            { 
+                Databaseervice.LoadSampleData();
+                SettingC971.FirstTimeRunning = false;
+            }
+
+            var mainDashboard = new TermOverview(); //Change "TermOverview" to change the first page to load.
             var mainNavPage = new NavigationPage(mainDashboard);
             MainPage = mainNavPage;
         }

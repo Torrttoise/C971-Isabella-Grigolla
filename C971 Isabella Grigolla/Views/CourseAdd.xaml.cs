@@ -54,7 +54,7 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(CourseInstructorPhone.Text))
+            if (!Int32.TryParse(CourseInstructorPhone.Text, out tossedInt))
             {
                 await DisplayAlert("Missing Course Instructor Phone Number", "Please Enter a number for your course Instructor.", "OK");
                 return;
@@ -66,7 +66,7 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.AddCourse(_selectedTermId, ClassName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), ClassStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text));
+            await Databaseervice.AddCourse(_selectedTermId, ClassName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), ClassStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, Convert.ToInt32(CourseInstructorPhone), CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
 
             await Navigation.PopAsync();
         }
