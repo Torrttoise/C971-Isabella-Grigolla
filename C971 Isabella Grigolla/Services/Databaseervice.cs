@@ -228,6 +228,12 @@ namespace C971_Isabella_Grigolla.Services
             var terms = await _datab.Table<Term>().ToListAsync(); //error
             return terms;
         }
+        /*
+        public async Task OnGetAsync()
+        {
+            var terms = await _datab.
+        }
+        */
 
         public static async Task UpdateTerm(int id, string name, DateTime startDate, DateTime endDate)
         {

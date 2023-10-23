@@ -25,17 +25,5 @@ namespace C971_Isabella_Grigolla
             var mainNavPage = new NavigationPage(mainDashboard);
             MainPage = mainNavPage;
         }
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
-        }
     }
 }
