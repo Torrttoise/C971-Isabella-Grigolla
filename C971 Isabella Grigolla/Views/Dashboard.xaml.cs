@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using SQLite;
+using Xamarin.Essentials;
 using C971_Isabella_Grigolla.Services;
 using C971_Isabella_Grigolla.Models;
+using C971_Isabella_Grigolla.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using C971_Isabella_Grigolla.Views;
 using Plugin.LocalNotifications;
-using Xamarin.Forms.Xaml;
+
 
 namespace C971_Isabella_Grigolla.Views
 {

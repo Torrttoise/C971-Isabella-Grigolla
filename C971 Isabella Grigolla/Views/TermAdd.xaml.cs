@@ -21,8 +21,7 @@ namespace C971_Isabella_Grigolla.Views
 
         async void SaveTerm_Clicked(object sender, EventArgs e)
         {
-            decimal tossedDecimal;
-            int tossedInt;
+            
 
             if (string.IsNullOrWhiteSpace(TermName.Text))
             {

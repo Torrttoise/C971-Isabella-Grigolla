@@ -53,7 +53,7 @@
             ItemsSource="{Binding CourseView}"
             EmptyView="No Classes to display."
             SelectionMode="Single"
-            SelectionChanged="CourseCollectionView_SelectionChanged">
+            SelectionChanged="CourseCollectionView_OnSelectionChanged">
 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"

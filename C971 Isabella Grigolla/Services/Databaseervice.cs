@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using SQLite;
 using Xamarin.Essentials;
+using C971_Isabella_Grigolla.Services;
 using C971_Isabella_Grigolla.Models;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Plugin.LocalNotifications;
+
 
 namespace C971_Isabella_Grigolla.Services
 {
@@ -138,6 +143,14 @@ namespace C971_Isabella_Grigolla.Services
 
         }
 
+        public static async Task<IEnumerable<CourseView>> GetCourses()
+        {
+            await init();
+
+            var courses = await _datab.Table<CourseView>().ToListAsync();
+            return courses;
+        }
+
 
         public static async Task<IEnumerable<CourseView>> GetCourses(int termId)
         {
@@ -146,6 +159,9 @@ namespace C971_Isabella_Grigolla.Services
             var courses = await _datab.Table<CourseView>().Where(i => i.TermId == termId).ToListAsync();
             return courses;
         }
+
+
+        
 
         public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail, string notes, bool notifications)
         {
@@ -209,7 +225,7 @@ namespace C971_Isabella_Grigolla.Services
         {
             await init();
 
-            var terms = await _datab.Table<Term>().ToListAsync();
+            var terms = await _datab.Table<Term>().ToListAsync(); //error
             return terms;
         }
 
@@ -474,6 +490,49 @@ namespace C971_Isabella_Grigolla.Services
 
 
         #endregion
+
+
+
+        #region   Loop
+
+        public static async void loopTermTable()
+        {
+            await init();
+
+            var atermRecord = _databConnection.Query<Term>("SELECT * FROM Term");
+            foreach(var termR in atermRecord)
+            {
+                Console.WriteLine("Name " + termR.Name);
+            }
+
+        }
+
+        public static async Task<List<Term>> GetNotifTermAsync()
+        {
+            await init();
+
+            var record = _databConnection.Query<Term>("Select * FROM Term");
+
+            return record;
+
+        }
+
+
+        public static async Task<IEnumerable<Term>> GetTermNotification()
+        {
+            await init();
+
+            var allTerms = _databConnection.Query<Term>("SELECT * FROM Term");
+
+            return allTerms;
+
+
+
+        }
+
+
+        #endregion
+
 
         /////////////////// End of Regions ///////////////////
 

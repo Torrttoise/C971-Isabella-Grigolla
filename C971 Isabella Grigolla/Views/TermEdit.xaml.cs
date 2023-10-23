@@ -26,7 +26,7 @@ namespace C971_Isabella_Grigolla.Views
 
 			CountLabel.Text = countCourses.ToString();
 
-			ClassCollectionView.ItemsSource = await Databaseervice.GetCourses(_selectedTermId);
+			CourseCollectionView.ItemsSource = await Databaseervice.GetCourses(_selectedTermId);
 
 
 		}
@@ -88,14 +88,14 @@ namespace C971_Isabella_Grigolla.Views
 
 				await Databaseervice.RemoveTerm(id);
 
-				await DisplayAlert("Term Deleted", "OK");
+				await DisplayAlert("Term Deleted", "Term has been deleted", "OK");
 
 
 			}
 
 			else
 			{
-				await DisplayAlert("Deletion Cancelled", "Ok");
+				await DisplayAlert("Deletion Cancelled", "The term has not been deleted", "Ok");
 			}
 
 			await Navigation.PopAsync();
@@ -109,7 +109,7 @@ namespace C971_Isabella_Grigolla.Views
 			await Navigation.PushAsync(new CourseAdd(termId));
 		}
 
-        async void CourseCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        async void CourseCollectionView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 			var course = (CourseView)e.CurrentSelection.FirstOrDefault();
 

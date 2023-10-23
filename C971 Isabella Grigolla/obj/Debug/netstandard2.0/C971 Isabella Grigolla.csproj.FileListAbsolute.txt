@@ -9,10 +9,20 @@ C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\De
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\Dashboard.xaml.g.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\NotesAdd.xaml.g.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\TermEdit.xaml.g.cs
-C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\TermOverview.xaml.g.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.AssemblyInfoInputs.cache
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.AssemblyInfo.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.csproj.CoreCompileInputs.cache
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\CourseAdd.xaml.g.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\TermAdd.xaml.g.cs
 C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\AppSettings.xaml.g.cs
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\TermOverview 2.xaml.g.cs
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\AssessmentAdd.xaml.g.cs
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\Views\AssessmentEdit.xaml.g.cs
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.dll
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\refint\C971 Isabella Grigolla.dll
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\C971 Isabella Grigolla.pdb
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\bin\Debug\netstandard2.0\C971 Isabella Grigolla.deps.json
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\bin\Debug\netstandard2.0\C971 Isabella Grigolla.dll
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\bin\Debug\netstandard2.0\ref\C971 Isabella Grigolla.dll
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\bin\Debug\netstandard2.0\C971 Isabella Grigolla.pdb
+C:\Users\bellg\source\repos\C971 Isabella Grigolla\C971 Isabella Grigolla\obj\Debug\netstandard2.0\XamlC.stamp

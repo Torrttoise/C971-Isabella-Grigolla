@@ -47,5 +47,7 @@ namespace C971_Isabella_Grigolla.Views
 
             await Databaseervice.WipeSampleData();
         }
+
+       
     }
 }
