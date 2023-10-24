@@ -21,7 +21,7 @@ namespace C971_Isabella_Grigolla
                 SettingC971.FirstTimeRunning = false;
             }
 
-            var mainDashboard = new TermOverview_2(); //Change "TermOverview" to change the first page to load.
+            var mainDashboard = new TermOverview(); //Change "TermOverview" to change the first page to load.
             var mainNavPage = new NavigationPage(mainDashboard);
             MainPage = mainNavPage;
         }

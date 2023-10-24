@@ -22,21 +22,20 @@ namespace C971_Isabella_Grigolla.Services
 
         static async Task init()
         {
-            if (_datab == null)
+            if (_datab != null)
             {
                 return;
             }
 
-            var pathOfDataBase = Path.Combine(FileSystem.AppDataDirectory, "C971_Services.db");
+            var pathOfDataBase = Path.Combine(FileSystem.AppDataDirectory, "TermInfo.db");
 
 
             _datab = new SQLiteAsyncConnection(pathOfDataBase);
             _databConnection = new SQLiteConnection(pathOfDataBase);
 
-
-            await _datab.CreateTableAsync<CourseNotes>();
-            await _datab.CreateTableAsync<CourseView>();
             await _datab.CreateTableAsync<Term>();
+            await _datab.CreateTableAsync<CourseView>();
+            await _datab.CreateTableAsync<CourseNotes>();
             await _datab.CreateTableAsync<CourseAssessments>();
 
 
@@ -228,6 +227,9 @@ namespace C971_Isabella_Grigolla.Services
             var terms = await _datab.Table<Term>().ToListAsync(); //error
             return terms;
         }
+
+
+
         /*
         public async Task OnGetAsync()
         {

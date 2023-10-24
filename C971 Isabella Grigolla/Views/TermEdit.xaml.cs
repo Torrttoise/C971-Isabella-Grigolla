@@ -118,5 +118,10 @@ namespace C971_Isabella_Grigolla.Views
 				await Navigation.PushAsync((new CourseEdit(course)));
 			}
         }
+
+        private void AddClasses_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

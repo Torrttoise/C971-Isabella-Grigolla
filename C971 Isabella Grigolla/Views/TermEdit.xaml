@@ -37,7 +37,7 @@
 
             </Grid>
             
-            <Button x:Name="AddClasses" Text="Add Classes"></Button>
+            <Button x:Name="AddClasses" Text="Add Classes" Clicked="AddClasses_Clicked"></Button>
                 
                 
             
