@@ -33,8 +33,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
-                <Label Text="{Binding Name}"
-           x:Name="ClassName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
+                <Entry Text="{Binding Name}" x:Name="ClassName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
                 <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
                 <Entry Text="{Binding ID}" x:Name="TermID" Placeholder="Enter Term ID for this Course." Grid.Row="0" Grid.Column="3" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
@@ -58,15 +57,15 @@
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
 
                 <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor</Label>
-                <Label Text="{Binding CourseInstrucorName}"
+                <Entry Text="{Binding CourseInstrucorName}"
            FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
-                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Coruse Instructor Phone:</Label>
-                <Label Text="{Binding CourseInstrucorPhone}"
+                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Coruse Instructor Phone</Label>
+                <Entry Text="{Binding CourseInstrucorName}"
             FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
 
                 <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor Email</Label>
-                <Label Text="{Binding CourseInstrucorEmail}"
+                <Entry Text="{Binding CourseInstrucorEmail}"
             FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
 
 

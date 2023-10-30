@@ -24,7 +24,7 @@ namespace C971_Isabella_Grigolla.Views
         { 
             InitializeComponent();
 
-            long cIP = Convert.ToInt64(CourseInstructorPhone);
+            //long cIP = Convert.ToInt64(CourseInstructorPhone);
 
             CourseID.Text = selectedCourse.Id.ToString();
             CourseName.Text = selectedCourse.Name;
@@ -32,7 +32,7 @@ namespace C971_Isabella_Grigolla.Views
             StartDatePicker.Date = selectedCourse.StartDate;
             EndDatePicker.Date = selectedCourse.EndDate;
             CourseInstructorName.Text = selectedCourse.CourseInstructorName;
-            cIP = selectedCourse.CourseInstructorPhone;
+            CourseInstructorPhone.Text = selectedCourse.CourseInstructorPhone;
             CourseInstructorEmail.Text = selectedCourse.CourseInstructorEmail;
             NotesFolders.Text = selectedCourse.Notes;
             Notifications.IsToggled = selectedCourse.Notifications;
@@ -97,20 +97,25 @@ namespace C971_Isabella_Grigolla.Views
             }
 
             //cIP2 = Convert.ToInt32(CourseInstructorPhone);
-
+            /*
             if (!Int32.TryParse(CourseInstructorPhone.Text, out tossedInt)) // check if this works due to string/int
             {
                 await DisplayAlert("Missing Course Insructor Number", "Please enter a number for your course instructor.", "Ok");
                 return;
             }
-
+            */
+            if (StartDatePicker.Date == EndDatePicker.Date)
+            {
+                await DisplayAlert("Start date and End date cannot be the same day.", "Please change the dates.", "Ok");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(CourseInstructorEmail.Text))
             {
                 await DisplayAlert("Missing Course Insructor Email", "Please enter an email for your course instructor.", "Ok");
                 return;
             }
 
-            await Databaseervice.UpdateCourses(Int32.Parse(CourseID.Text), CourseName.Text, StartDatePicker.Date, EndDatePicker.Date, CourseStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, Convert.ToInt32(CourseInstructorPhone.Text), CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
+            await Databaseervice.UpdateCourses(Int32.Parse(CourseID.Text), CourseName.Text, StartDatePicker.Date, EndDatePicker.Date, CourseStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
 
             await Navigation.PopAsync();
 
@@ -131,11 +136,23 @@ namespace C971_Isabella_Grigolla.Views
             });
 
         }
-        /*
-        private void ShareURL_Clicked(object sender, EventArgs e)
+
+        private void AssessmentCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-        */
+
+        async void AddAssessment_Clicked(object sender, EventArgs e)
+        {
+            var courseId = Int32.Parse(CourseID.Text);
+
+            await Navigation.PushAsync(new AssessmentAdd(courseId));
+        }
+        /*
+private void ShareURL_Clicked(object sender, EventArgs e)
+{
+
+}
+*/
     }
 }

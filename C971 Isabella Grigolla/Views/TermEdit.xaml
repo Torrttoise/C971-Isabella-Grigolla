@@ -36,8 +36,8 @@
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker" FontSize="Medium"></DatePicker>
 
             </Grid>
-            
-            <Button x:Name="AddClasses" Text="Add Classes" Clicked="AddClasses_Clicked"></Button>
+
+            <Button x:Name="AddCourse" Text="Add Courses" Clicked="AddCourse_OnClicked"></Button>
                 
                 
             
@@ -108,23 +108,28 @@
                                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
 
                                 <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor</Label>
-                                <Label Text="{Binding CourseInstrucorName}"
+                                <Entry  Text="{Binding CourseInstrucorName}"
                                        FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
                                 <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Coruse Instructor Phone:</Label>
-                                <Label Text="{Binding CourseInstrucorPhone}"
+                                <Entry Text="{Binding CourseInstrucorPhone}"
                                         FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
 
                                 <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor Email</Label>
-                                <Label Text="{Binding CourseInstrucorEmail}"
+                                <Entry Text="{Binding CourseInstrucorEmail}"
                                         FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
+
+                                
+                                
+                                
 
 
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+             </CollectionView>
+            <!--<Button x:Name="ViewCourses" Text="View all Courses" Clicked="ViewCourses_Clicked"></Button> -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

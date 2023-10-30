@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.LocalNotifications;
+using Xamarin.Essentials;
 
 namespace C971_Isabella_Grigolla.Views
 {
@@ -109,11 +110,10 @@ namespace C971_Isabella_Grigolla.Views
 			await Navigation.PushAsync(new CourseAdd(termId));
 		}
 
-        async void CourseCollectionView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CourseCollectionView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 			var course = (CourseView)e.CurrentSelection.FirstOrDefault();
-
-			if (e.CurrentSelection != null) 
+			if (e.CurrentSelection !=null)
 			{
 				await Navigation.PushAsync((new CourseEdit(course)));
 			}
@@ -123,5 +123,11 @@ namespace C971_Isabella_Grigolla.Views
         {
 
         }
+
+        private void ViewCourses_Clicked(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

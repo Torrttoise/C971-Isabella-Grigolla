@@ -111,7 +111,7 @@ namespace C971_Isabella_Grigolla.Services
 
         #region CourseView methods
 
-        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string couseInstructorEmail, string notes, bool notifications)
+        public static async Task AddCourse(int termId, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, string courseInstructorPhone, string couseInstructorEmail, string notes, bool notifications)
         {
             await init();
             var course = new CourseView
@@ -162,7 +162,7 @@ namespace C971_Isabella_Grigolla.Services
 
         
 
-        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, int courseInstructorPhone, string courseInstructorEmail, string notes, bool notifications)
+        public static async Task UpdateCourses(int id, string name, DateTime startDate, DateTime endDate, string status, string courseInstructorName, string courseInstructorPhone, string courseInstructorEmail, string notes, bool notifications)
         {
             await init();
 
@@ -356,7 +356,7 @@ namespace C971_Isabella_Grigolla.Services
                         Status = "In Progress",
                         CourseInstructorId = 3,
                         CourseInstructorName = "Isabella Grigolla",
-                        CourseInstructorPhone = 626-253-7474,
+                        CourseInstructorPhone = "626-253-7474",
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
@@ -372,7 +372,7 @@ namespace C971_Isabella_Grigolla.Services
                         {
                             CourseId = course1.Id,
                             Name = "Title of Practice Assessment",
-                            TypeOfAssessment = "PA",
+                            TypeOfAssessment = "Perfomance Assessment",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddMonths(1)
 
@@ -382,7 +382,7 @@ namespace C971_Isabella_Grigolla.Services
                         {
                             CourseId = course1.Id,
                             Name = "Title of Objective Assessment",
-                            TypeOfAssessment = "OA",
+                            TypeOfAssessment = "Objective Assessment",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddMonths(1)
                         };
@@ -396,7 +396,7 @@ namespace C971_Isabella_Grigolla.Services
                         Status = "Planned",
                         CourseInstructorId = 3,
                         CourseInstructorName = "Isabella Grigolla",
-                        CourseInstructorPhone = 626 - 253 - 7474,
+                        CourseInstructorPhone = "626-253-7474",
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
@@ -437,7 +437,7 @@ namespace C971_Isabella_Grigolla.Services
                         Status = "Completed",
                         CourseInstructorId = 3,
                         CourseInstructorName = "Isabella Grigolla",
-                        CourseInstructorPhone = 626 - 253 - 7474,
+                        CourseInstructorPhone = "626-253-7474",
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };

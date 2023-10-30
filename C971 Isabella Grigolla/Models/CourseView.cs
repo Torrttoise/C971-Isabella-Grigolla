@@ -33,7 +33,7 @@ namespace C971_Isabella_Grigolla.Models
         */
         public int CourseInstructorId { get; set; }
         public string CourseInstructorName { get; set; }
-        public long CourseInstructorPhone { get; set; }
+        public string CourseInstructorPhone { get; set; }
         public string CourseInstructorEmail { get; set; }
         public DateTime DateofCreation { get; set; }
         public string Notes { get; set; }
