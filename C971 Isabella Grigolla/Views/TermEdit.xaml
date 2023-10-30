@@ -41,10 +41,9 @@
                 
                 
             
-            <Label Text="Class Count" FontSize="Large"></Label>
-            <Label x:Name="CountLabel" FontSize="Large"></Label>
+            <Label Text="Class Count:" FontSize="Large"></Label> <Label x:Name="CountLabel" FontSize="Large"></Label>
+            
             <Label x:Name="LabelList" Text="List of Classes" FontSize="Large" FontAttributes="Bold"></Label>
-            <Label Text="_________________________________"></Label>
 
 
 

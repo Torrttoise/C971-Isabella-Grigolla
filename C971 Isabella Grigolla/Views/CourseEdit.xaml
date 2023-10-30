@@ -35,7 +35,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
-                <Label Text="{Binding Name}"
+                <Entry Text="{Binding Name}"
 x:Name="CourseName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
                 <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>

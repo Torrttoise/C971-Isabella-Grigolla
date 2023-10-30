@@ -303,7 +303,7 @@ namespace C971_Isabella_Grigolla.Services
         }
 
 
-        public static async Task UpdateAssessment(int id, int courseId, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
+        public static async Task UpdateAssessment(int id, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
         {
             await init();
 
