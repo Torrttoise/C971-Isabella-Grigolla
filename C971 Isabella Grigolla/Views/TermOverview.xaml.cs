@@ -43,10 +43,29 @@ namespace C971_Isabella_Grigolla.Views
                 {
                     if (courseR.DateofCreation == DateTime.Today)
                     {
-                        CrossLocalNotifications.Current.Show("Alert", $"{courseR.Name} begins todday.", notifyId);
+                        CrossLocalNotifications.Current.Show("Alert", $"{courseR.Name} begins today.", notifyId);
                     }
                 }
             }
+
+            /*
+            var assessmentList = await Databaseervice.GetAssessment();
+            var notifyRA = new Random();
+            var notifyIdR = notifyRA.Next(1000);
+
+            foreach (CourseAssessments assessmentsR in assessmentList)
+            {
+                if (assessmentsR.Notifications == true)
+                {
+                    if (assessmentsR.DateofCreation == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("Alert", $"{assessmentsR.Name} begins today.", notifyIdR);
+                    }
+                }
+            }
+            */
+
+
         }
 
         private async void Settings_Clicked(object sender, EventArgs e)

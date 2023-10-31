@@ -24,24 +24,28 @@ namespace C971_Isabella_Grigolla.Views
             base.OnAppearing();
 
 
-            int countAssessments = await Databaseervice.GetCourseCountAsync(_selectedCourseId);
+            int countAssessments = await Databaseervice.GetAssessmentCountAsync(_selectedCourseId);
 
-            //CountLabel.Text = countCourses.ToString();
+            CountLabel.Text = countAssessments.ToString();
 
-            AssessmentCollectionView.ItemsSource = await Databaseervice.GetCourses(_selectedCourseId);
+            AssessmentCollectionView.ItemsSource = await Databaseervice.GetAssessments(_selectedCourseId);
+
+
 
 
         }
         public CourseEdit ()
 		{
 			InitializeComponent ();
-		}
+        }
 
         public CourseEdit(CourseView selectedCourse)
         { 
             InitializeComponent();
 
             //long cIP = Convert.ToInt64(CourseInstructorPhone);
+
+            _selectedCourseId = selectedCourse.Id;
 
             CourseID.Text = selectedCourse.Id.ToString();
             CourseName.Text = selectedCourse.Name;
@@ -57,7 +61,7 @@ namespace C971_Isabella_Grigolla.Views
         }
 
 
-        private async void DeleteCourse_Clicked(object sender, EventArgs e)
+        async void DeleteCourse_Clicked(object sender, EventArgs e)
         {
             var selected = await DisplayAlert("Delete this course?", "Are you sure?", "Yes", "No");
 
@@ -80,12 +84,12 @@ namespace C971_Isabella_Grigolla.Views
 
         }
 
-        private async void CancelCourse_Clicked(object sender, EventArgs e)
+        async void CancelCourse_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }
 
-        private async void SaveCourse_Clicked(object sender, EventArgs e)
+        async void SaveCourse_Clicked(object sender, EventArgs e)
         {
 
             decimal tossedDecimal;
@@ -147,7 +151,7 @@ namespace C971_Isabella_Grigolla.Views
 
         
 
-        private async void ShareButton_Clicked(object sender, EventArgs e)
+        async void ShareButton_Clicked(object sender, EventArgs e)
         {
             var sharingText = CourseName.Text;
 

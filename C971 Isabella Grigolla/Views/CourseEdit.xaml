@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971_Isabella_Grigolla.Views.CourseEdit">
-
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="SaveCourse" Text="Save" Clicked="SaveCourse_Clicked"></ToolbarItem>
         <ToolbarItem x:Name="CancelCourse" Text="Cancel" Clicked="CancelCourse_Clicked"></ToolbarItem>
@@ -13,7 +12,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="Gray">
+            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="LightGray">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -35,17 +34,14 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
-                <Entry Text="{Binding Name}"
-x:Name="CourseName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
+                <Entry Text="{Binding Name}" x:Name="CourseName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
                 <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
                 <Entry Text="{Binding ID}" x:Name="CourseID" Placeholder="Enter ID for this Course." Grid.Row="0" Grid.Column="3" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
 
 
                 <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Status</Label>
-                <Picker Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="CourseStatusPicker"
- Title="Set a Status"
- TitleColor="Navy">
+                <Picker Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="CourseStatusPicker" Title="Set a Status" TitleColor="Navy">
                     <Picker.Items>
                         <x:String>In Progress</x:String>
                         <x:String>Completed</x:String>
@@ -60,16 +56,13 @@ x:Name="CourseName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextA
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
 
                 <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor</Label>
-                <Label Text="{Binding CourseInstrucorName}"
-FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
+                <Label Text="{Binding CourseInstrucorName}" FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
                 <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Coruse Instructor Phone:</Label>
-                <Label Text="{Binding CourseInstrucorPhone}"
- FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
+                <Label Text="{Binding CourseInstrucorPhone}" FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
 
                 <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor Email</Label>
-                <Label Text="{Binding CourseInstrucorEmail}"
- FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
+                <Label Text="{Binding CourseInstrucorEmail}" FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
 
 
                 <Label Grid.Row="7" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Notes</Label>
@@ -84,6 +77,8 @@ FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
             </Grid>
 
+            <Label Text="Assessment Count:" FontSize="Large"></Label> <Label x:Name="CountLabel" FontSize="Large"></Label>
+            
             <Button x:Name="AddAssessment" Text="Add Assessments" Clicked="AddAssessment_Clicked"></Button>
 
 
@@ -102,7 +97,7 @@ FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="Gray">
+                            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="LightSlateGray">
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -125,36 +120,17 @@ FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
                                 <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
                                 <Label Text="{Binding Name}"
-                           x:Name="ClassName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
+                           x:Name="AssessmentName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
 
                                 <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Type of Assessment</Label>
-                                <Picker Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="AssessmentTypePicker"
-                            Title="Set a Status"
-                            TitleColor="Navy">
-                                    <Picker.Items>
-                                        <x:String>Objective Assessment</x:String>
-                                        <x:String>Perfomance Assessment</x:String>
-                                        <x:String>Pre-Assessment</x:String>
-                                    </Picker.Items>
-                                </Picker>
-
-                                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
-                                <DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker"></DatePicker>
-
-                                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
-                                <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
+                                <Label Text="{Binding TypeOfAssessment}" Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="TypeResults"></Label>
 
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-
-
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

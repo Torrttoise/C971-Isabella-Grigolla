@@ -23,7 +23,7 @@ namespace C971_Isabella_Grigolla.Views
 
         public AssessmentAdd(int CourseId)
         {
-            InitializeComponent();
+            InitializeComponent ();
 
             _selectedCourseId = CourseId;
         }
@@ -35,7 +35,7 @@ namespace C971_Isabella_Grigolla.Views
 
             if (string.IsNullOrWhiteSpace(AssessmentName.Text))
             {
-                await DisplayAlert("Missing Name", "Please Enter a name for the Course.", "OK");
+                await DisplayAlert("Missing Name", "Please Enter a name for the Assessment.", "OK");
                 return;
             }
 

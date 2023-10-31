@@ -35,7 +35,6 @@ namespace C971_Isabella_Grigolla.Services
 
             await _datab.CreateTableAsync<Term>();
             await _datab.CreateTableAsync<CourseView>();
-            await _datab.CreateTableAsync<CourseNotes>();
             await _datab.CreateTableAsync<CourseAssessments>();
 
 
@@ -45,69 +44,7 @@ namespace C971_Isabella_Grigolla.Services
 
         /////////////////// Beginning of Regions ///////////////////
 
-        #region CourseNotes methods
-
-
-        public static async Task AddNotes(string title, int courseId, string description)
-        {
-            await init();
-            var course = new CourseNotes
-            {
-                Title = title,
-                CourseId = courseId,
-                Description = description
-
-            };
-
-            await _datab.InsertAsync(course);
-
-            var id = course.Id;
-
-        }
-
-        public static async Task RemoveNotes(int id)
-        {
-            await init();
-
-            await _datab.DeleteAsync<CourseNotes>(id);
-        }
-
-
-        public static async Task<IEnumerable<CourseNotes>> GetNotes(int courseId)
-        {
-            await init();
-
-            var notes = await _datab.Table<CourseNotes>().Where(i => i.CourseId == courseId).ToListAsync();
-            return notes;
-        }
-
-
-        public static async Task UpdateNotes(int id, int courseId, string title, string description)
-        {
-            await init();
-
-            var notesUpdateQuery = await _datab.Table<CourseNotes>()
-                .Where(i => i.Id == id)
-                .FirstOrDefaultAsync();
-
-            if (notesUpdateQuery != null)
-            {
-                notesUpdateQuery.Id = id;
-                notesUpdateQuery.Title = title;
-                notesUpdateQuery.Description = description;
-
-                await _datab.UpdateAsync(notesUpdateQuery);
-
-            };
-
-            
-                    
-        }
-
-
-
-        #endregion
-
+       
 
         #region CourseView methods
 
@@ -224,18 +161,9 @@ namespace C971_Isabella_Grigolla.Services
         {
             await init();
 
-            var terms = await _datab.Table<Term>().ToListAsync(); //error
+            var terms = await _datab.Table<Term>().ToListAsync(); 
             return terms;
         }
-
-
-
-        /*
-        public async Task OnGetAsync()
-        {
-            var terms = await _datab.
-        }
-        */
 
         public static async Task UpdateTerm(int id, string name, DateTime startDate, DateTime endDate)
         {
@@ -282,7 +210,6 @@ namespace C971_Isabella_Grigolla.Services
             var id = assessment.Id;
 
         }
-       
 
         public static async Task RemoveAssessment(int id)
         {
@@ -292,6 +219,13 @@ namespace C971_Isabella_Grigolla.Services
 
         }
 
+        public static async Task<IEnumerable<CourseAssessments>> GetAssessment()
+        {
+            await init();
+
+            var assessment = await _datab.Table<CourseAssessments>().ToListAsync();
+            return assessment;
+        }
 
         public static async Task<IEnumerable<CourseAssessments>> GetAssessments(int courseId)
         {
@@ -301,7 +235,6 @@ namespace C971_Isabella_Grigolla.Services
             return assessments;
 
         }
-
 
         public static async Task UpdateAssessment(int id, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
         {
@@ -360,13 +293,6 @@ namespace C971_Isabella_Grigolla.Services
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
-                
-                        CourseNotes notes1 = new CourseNotes
-                        {
-                            CourseId = course1.Id,
-                            Title = "Steps on continuing towards progress.",
-                            Description = "1.Test /n 2.Knowledge /n 3.Marriage /n"
-                        };
 
                         CourseAssessments assessment1 = new CourseAssessments
                         {
@@ -400,13 +326,6 @@ namespace C971_Isabella_Grigolla.Services
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
-
-                        CourseNotes notes2 = new CourseNotes
-                        {
-                            CourseId = course2.Id,
-                            Title = "I am a note from the future.",
-                            Description = "October 25th 1985."
-                        };
 
                         CourseAssessments assessment3 = new CourseAssessments
                         {
@@ -466,7 +385,6 @@ namespace C971_Isabella_Grigolla.Services
 
             await _datab.DropTableAsync<Term>();
             await _datab.DropTableAsync<CourseView>();
-            await _datab.DropTableAsync<CourseNotes>();
             await _datab.DropTableAsync<CourseAssessments>();
 
             _datab = null;
@@ -493,6 +411,13 @@ namespace C971_Isabella_Grigolla.Services
             int courseCounts = await _datab.ExecuteScalarAsync<int>($"Select Count(*) from CourseView where TermId = ?", selectedTermId);
 
             return courseCounts;
+        }
+
+        public static async Task<int> GetAssessmentCountAsync(int selectedCourseId)
+        {
+            int assessmentCounts = await _datab.ExecuteScalarAsync<int>($"Select Count(*) from CourseAssessments where CourseId = ?", selectedCourseId);
+
+            return assessmentCounts;
         }
 
 

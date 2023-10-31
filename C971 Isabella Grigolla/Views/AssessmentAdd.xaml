@@ -13,7 +13,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="Gray">
+            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="LightGray">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
