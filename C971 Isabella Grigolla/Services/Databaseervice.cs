@@ -193,7 +193,7 @@ namespace C971_Isabella_Grigolla.Services
         #region CourseAssessment methods
 
 
-        public static async Task AddAssessment(int courseId, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
+        public static async Task AddAssessment(int courseId, string name, string typeOfAssessment, DateTime startDate, DateTime endDate, bool notification)
         {
             await init();
 
@@ -203,7 +203,8 @@ namespace C971_Isabella_Grigolla.Services
                 Name = name,
                 TypeOfAssessment = typeOfAssessment,
                 StartDate = startDate,
-                EndDate = endDate
+                EndDate = endDate,
+                Notifications = notification
             };
             await _datab.InsertAsync(assessment);
 
@@ -236,7 +237,7 @@ namespace C971_Isabella_Grigolla.Services
 
         }
 
-        public static async Task UpdateAssessment(int id, string name, string typeOfAssessment, DateTime startDate, DateTime endDate)
+        public static async Task UpdateAssessment(int id, string name, string typeOfAssessment, DateTime startDate, DateTime endDate, bool notification)
         {
             await init();
 
@@ -252,6 +253,7 @@ namespace C971_Isabella_Grigolla.Services
                 assessmentUpdateQuery.TypeOfAssessment = typeOfAssessment;
                 assessmentUpdateQuery.StartDate = startDate;
                 assessmentUpdateQuery.EndDate = endDate;
+                assessmentUpdateQuery.Notifications = notification;
 
                 await _datab.UpdateAsync(assessmentUpdateQuery);
             }
@@ -274,7 +276,7 @@ namespace C971_Isabella_Grigolla.Services
             {
 
                 Name = "Term 1",
-                StartDate = DateTime.Now,
+                StartDate = DateTime.Now.AddMonths(-4),
                 EndDate = DateTime.Now.AddMonths(4),
             };
 
@@ -293,6 +295,7 @@ namespace C971_Isabella_Grigolla.Services
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
+                    await _datab.InsertAsync(course1);
 
                         CourseAssessments assessment1 = new CourseAssessments
                         {
@@ -303,6 +306,7 @@ namespace C971_Isabella_Grigolla.Services
                             EndDate = DateTime.Now.AddMonths(1)
 
                         };
+                        await _datab.InsertAsync(assessment1);
 
                         CourseAssessments assessment2 = new CourseAssessments
                         {
@@ -312,6 +316,9 @@ namespace C971_Isabella_Grigolla.Services
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddMonths(1)
                         };
+                        await _datab.InsertAsync(assessment2);
+
+            // _____________________________________
 
                     CourseView course2 = new CourseView
                     {
@@ -326,26 +333,29 @@ namespace C971_Isabella_Grigolla.Services
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
+                    await _datab.InsertAsync(course2);
 
                         CourseAssessments assessment3 = new CourseAssessments
                         {
                             CourseId = course2.Id,
                             Name = "Title of Practice Assessment",
                             TypeOfAssessment = "PA",
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddMonths(1)
+                            StartDate = DateTime.Now.AddMonths(2),
+                            EndDate = DateTime.Now.AddMonths(3)
 
                         };
+                        await _datab.InsertAsync(assessment3);
 
                         CourseAssessments assessment4 = new CourseAssessments
                         {
                             CourseId = course2.Id,
                             Name = "Title of Objective Assessment",
                             TypeOfAssessment = "OA",
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddMonths(1)
+                            StartDate = DateTime.Now.AddMonths(2),
+                            EndDate = DateTime.Now.AddMonths(3)
                         };
-
+                        await _datab.InsertAsync(assessment4);
+             // _____________________________________
 
                     CourseView course3 = new CourseView
                     {
@@ -360,22 +370,137 @@ namespace C971_Isabella_Grigolla.Services
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
+                    await _datab.InsertAsync(course3);
 
-            /*
+                           CourseAssessments assessment5 = new CourseAssessments
+                        {
+                            CourseId = course3.Id,
+                            Name = "Title of Practice Assessment",
+                            TypeOfAssessment = "Perfomance Assessment",
+                            StartDate = DateTime.Now.AddMonths(-2),
+                            EndDate = DateTime.Now.AddMonths(-3)
+
+                        };
+                        await _datab.InsertAsync(assessment5);
+
+                        CourseAssessments assessment6 = new CourseAssessments
+                        {
+                            CourseId = course3.Id,
+                            Name = "Title of Objective Assessment",
+                            TypeOfAssessment = "Objective Assessment",
+                            StartDate = DateTime.Now.AddMonths(-2),
+                            EndDate = DateTime.Now.AddMonths(-3)
+                        };
+                        await _datab.InsertAsync(assessment6);
+           // _____________________________________
                     CourseView course4 = new CourseView
                     {
                         TermId = term1.Id,
                         Name = "Course 4",
-                        StartDate = DateTime.Now.AddMonths(-2) ,   ////Test of negative addition to add months.
-                        EndDate = DateTime.Now.AddMonths(-3),
+                        StartDate = DateTime.Now.AddMonths(-3) ,   ////Test of negative addition to add months.
+                        EndDate = DateTime.Now.AddMonths(-4),
                         Status = "Completed",
                         CourseInstructorId = 3,
                         CourseInstructorName = "Isabella Grigolla",
-                        CourseInstructorPhone = 626 - 253 - 7474,
+                        CourseInstructorPhone = "626-253-7474",
                         CourseInstructorEmail = "igrigol@wgu.edu"
 
                     };
-            */
+                    await _datab.InsertAsync(course4);
+                             CourseAssessments assessment7 = new CourseAssessments
+                        {
+                                 CourseId = course4.Id,
+                                 Name = "Title of Practice Assessment",
+                                 TypeOfAssessment = "Practice Assessment",
+                                 StartDate = DateTime.Now.AddMonths(-3),
+                                 EndDate = DateTime.Now.AddMonths(-4)
+
+                             };
+                        await _datab.InsertAsync(assessment7);
+
+                        CourseAssessments assessment8 = new CourseAssessments
+                        {
+                            CourseId = course4.Id,
+                            Name = "Title of Objective Assessment",
+                            TypeOfAssessment = "Objective Assessment",
+                            StartDate = DateTime.Now.AddMonths(-3),
+                            EndDate = DateTime.Now.AddMonths(-4)
+                        };
+                        await _datab.InsertAsync(assessment8);
+           // _____________________________________
+
+            
+                    CourseView course5 = new CourseView
+                    {
+                        TermId = term1.Id,
+                        Name = "Course 5",
+                        StartDate = DateTime.Now.AddMonths(2) ,   ////Test of negative addition to add months.
+                        EndDate = DateTime.Now.AddMonths(3),
+                        Status = "Completed",
+                        CourseInstructorId = 3,
+                        CourseInstructorName = "Isabella Grigolla",
+                        CourseInstructorPhone = "626-253-7474",
+                        CourseInstructorEmail = "igrigol@wgu.edu"
+
+                    };
+                    await _datab.InsertAsync(course5);
+                    CourseAssessments assessment9 = new CourseAssessments
+                        {
+                                 CourseId = course5.Id,
+                                 Name = "Title of Practice Assessment",
+                                 TypeOfAssessment = "Practice Assessment",
+                                 StartDate = DateTime.Now.AddMonths(2),
+                                 EndDate = DateTime.Now.AddMonths(3)
+
+                             };
+                        await _datab.InsertAsync(assessment9);
+
+                        CourseAssessments assessment10 = new CourseAssessments
+                        {
+                            CourseId = course5.Id,
+                            Name = "Title of Objective Assessment",
+                            TypeOfAssessment = "Objective Assessment",
+                            StartDate = DateTime.Now.AddMonths(2),
+                            EndDate = DateTime.Now.AddMonths(3)
+                        };
+                        await _datab.InsertAsync(assessment10);
+            //__________________________________________________
+
+
+            CourseView course6 = new CourseView
+            {
+                TermId = term1.Id,
+                Name = "Course 6",
+                StartDate = DateTime.Now.AddMonths(3),   ////Test of negative addition to add months.
+                EndDate = DateTime.Now.AddMonths(3),
+                Status = "Completed",
+                CourseInstructorId = 3,
+                CourseInstructorName = "Isabella Grigolla",
+                CourseInstructorPhone = "626-253-7474",
+                CourseInstructorEmail = "igrigol@wgu.edu"
+
+            };
+            await _datab.InsertAsync(course6);
+            CourseAssessments assessment11 = new CourseAssessments
+            {
+                CourseId = course5.Id,
+                Name = "Title of Practice Assessment",
+                TypeOfAssessment = "Practice Assessment",
+                StartDate = DateTime.Now.AddMonths(3),
+                EndDate = DateTime.Now.AddMonths(3)
+
+            };
+            await _datab.InsertAsync(assessment11);
+
+            CourseAssessments assessment12 = new CourseAssessments
+            {
+                CourseId = course5.Id,
+                Name = "Title of Objective Assessment",
+                TypeOfAssessment = "Objective Assessment",
+                StartDate = DateTime.Now.AddMonths(3),
+                EndDate = DateTime.Now.AddMonths(3)
+            };
+            await _datab.InsertAsync(assessment12);
 
         }
 

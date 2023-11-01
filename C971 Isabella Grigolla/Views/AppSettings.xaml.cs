@@ -28,8 +28,8 @@ namespace C971_Isabella_Grigolla.Views
 
             if (SettingC971.FirstTimeRunning)
             {
-                Databaseervice.LoadSampleData();
-                SettingC971.FirstTimeRunning = false;
+               Databaseervice.LoadSampleData();
+               SettingC971.FirstTimeRunning = false;
 
 
 

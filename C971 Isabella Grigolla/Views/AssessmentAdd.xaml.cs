@@ -45,7 +45,13 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.AddAssessment(_selectedCourseId, AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()));
+            if (StartDatePicker.Date > EndDatePicker.Date)
+            {
+                await DisplayAlert("End date cannot be before Start date.", "Please change the dates.", "Ok");
+                return;
+            }
+
+            await Databaseervice.AddAssessment(_selectedCourseId, AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), Notifications.IsToggled);
 
             await Navigation.PopAsync();
 

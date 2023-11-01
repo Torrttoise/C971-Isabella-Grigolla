@@ -30,7 +30,19 @@ namespace C971_Isabella_Grigolla.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            
+
+
+            if (SettingC971.FirstTimeRunning)
+            {
+                Databaseervice.LoadSampleData();
+                //SettingC971.FirstTimeRunning = false;
+
+
+
+                await Navigation.PopToRootAsync();
+
+            }
+
             Terms.ItemsSource = await Databaseervice.GetTerms();
 
             var classList = await Databaseervice.GetCourses();
@@ -41,14 +53,14 @@ namespace C971_Isabella_Grigolla.Views
             {
                 if (courseR.Notifications == true)
                 {
-                    if (courseR.DateofCreation == DateTime.Today)
+                    if (courseR.StartDate == DateTime.Today)
                     {
                         CrossLocalNotifications.Current.Show("Alert", $"{courseR.Name} begins today.", notifyId);
                     }
                 }
             }
 
-            /*
+            
             var assessmentList = await Databaseervice.GetAssessment();
             var notifyRA = new Random();
             var notifyIdR = notifyRA.Next(1000);
@@ -57,13 +69,13 @@ namespace C971_Isabella_Grigolla.Views
             {
                 if (assessmentsR.Notifications == true)
                 {
-                    if (assessmentsR.DateofCreation == DateTime.Today)
+                    if (assessmentsR.StartDate == DateTime.Today)
                     {
-                        CrossLocalNotifications.Current.Show("Alert", $"{assessmentsR.Name} begins today.", notifyIdR);
+                        CrossLocalNotifications.Current.Show("Alert", $"{assessmentsR.Name} is today!", notifyIdR);
                     }
                 }
             }
-            */
+            
 
 
         }

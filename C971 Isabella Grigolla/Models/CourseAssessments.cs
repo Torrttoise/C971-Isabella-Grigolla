@@ -17,7 +17,8 @@ namespace C971_Isabella_Grigolla.Models
         public string TypeOfAssessment { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-
+        public bool Notifications { get; set; }
+        public DateTime DateofCreation { get; set; }
 
 
     }

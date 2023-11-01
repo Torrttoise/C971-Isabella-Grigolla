@@ -60,13 +60,13 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            if (EndDatePicker.Date  > StartDatePicker.Date)
+            if (StartDatePicker.Date > EndDatePicker.Date)
             {
                 await DisplayAlert("End date cannot be before Start date.", "Please change the dates.", "Ok");
                 return;
             }
 
-            await Databaseervice.UpdateAssessment(Int32.Parse(AssessmentId.Text), AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), StartDatePicker.Date, EndDatePicker.Date);
+            await Databaseervice.UpdateAssessment(Int32.Parse(AssessmentId.Text), AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), StartDatePicker.Date, EndDatePicker.Date, Notifications.IsToggled);
 
             await Navigation.PopAsync();
         }

@@ -59,6 +59,9 @@ x:Name="AssessmentName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalT
                 <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
 
+                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Notification" />
+                <Switch Grid.Row="4" Grid.Column="1" x:Name="Notifications" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center"/>
+
 
             </Grid>
         </StackLayout>
