@@ -23,11 +23,11 @@ namespace C971_Isabella_Grigolla.Views
 			base.OnAppearing();
 
 
-			int countCourses = await Databaseervice.GetCourseCountAsync(_selectedTermId);
+			int countCourses = await DS.GetCourseCountAsync(_selectedTermId);
 
 			//CountLabel.Text = countCourses.ToString();
 
-			CourseCollectionView.ItemsSource = await Databaseervice.GetCourses(_selectedTermId);
+			CourseCollectionView.ItemsSource = await DS.GetCourses(_selectedTermId);
 
 
 		}
@@ -59,8 +59,7 @@ namespace C971_Isabella_Grigolla.Views
 
 		async void SaveTerm_OnClicked(object sender, EventArgs e)
 		{
-			decimal tossedDecimal;
-			int tossedInt;
+			
 
 			if (string.IsNullOrWhiteSpace(TermName.Text))
 			{
@@ -68,7 +67,7 @@ namespace C971_Isabella_Grigolla.Views
 				return;
 			}
 
-			await Databaseervice.UpdateTerm(Int32.Parse(TermID.Text), TermName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()));
+			await DS.UpdateTerm(Int32.Parse(TermID.Text), TermName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()));
 
 			await Navigation.PopAsync();
 
@@ -87,7 +86,7 @@ namespace C971_Isabella_Grigolla.Views
 			{
 				var id = int.Parse(TermID.Text);
 
-				await Databaseervice.RemoveTerm(id);
+				await DS.RemoveTerm(id);
 
 				await DisplayAlert("Term Deleted", "Term has been deleted", "OK");
 
@@ -105,7 +104,18 @@ namespace C971_Isabella_Grigolla.Views
 
 		async void AddCourse_OnClicked(Object sender, EventArgs e)
 		{
-			var termId = Int32.Parse(TermID.Text);
+            int countCourses = await DS.GetCourseCountAsync(_selectedTermId);
+
+            //CountLabel.Text = countCourses.ToString();
+
+
+            if (countCourses == 6)
+            {
+                await DisplayAlert("Maximum number of courses reached", "Please delete or edit the current courses.", "Ok");
+                return;
+            }
+
+            var termId = Int32.Parse(TermID.Text);
 
 			await Navigation.PushAsync(new CourseAdd(termId));
 		}
@@ -128,6 +138,10 @@ namespace C971_Isabella_Grigolla.Views
         {
 
         }
-        
+
+        private void addCourseTool_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

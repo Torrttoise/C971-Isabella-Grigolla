@@ -24,11 +24,11 @@ namespace C971_Isabella_Grigolla.Views
             base.OnAppearing();
 
 
-            int countAssessments = await Databaseervice.GetAssessmentCountAsync(_selectedCourseId);
+            int countAssessments = await DS.GetAssessmentCountAsync(_selectedCourseId);
 
-            CountLabel.Text = countAssessments.ToString();
+            //string totalAssessments = countAssessments.ToString();
 
-            AssessmentCollectionView.ItemsSource = await Databaseervice.GetAssessments(_selectedCourseId);
+            AssessmentCollectionView.ItemsSource = await DS.GetAssessments(_selectedCourseId);
 
 
 
@@ -69,7 +69,7 @@ namespace C971_Isabella_Grigolla.Views
             {
                 var id = int.Parse(CourseID.Text);
 
-                await Databaseervice.RemoveCourse(id);
+                await DS.RemoveCourse(id);
 
                 await DisplayAlert("Course has been deleted.", "Course has been deleted.", "Ok");
 
@@ -92,10 +92,7 @@ namespace C971_Isabella_Grigolla.Views
         async void SaveCourse_Clicked(object sender, EventArgs e)
         {
 
-            decimal tossedDecimal;
-            int tossedInt;
-            //tossedDecimal = 0;
-            //int cIP2;
+            
 
 
             if (string.IsNullOrWhiteSpace(CourseName.Text))
@@ -104,27 +101,34 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(CourseStatusPicker.SelectedItem.ToString()))
+            
+            if (CourseStatusPicker.SelectedItem == null)
             {
-                await DisplayAlert("Missing Course Status", "Please select a status for this course.", "Ok");
+                await DisplayAlert("Missing Status", "Please select a value", "OK");
                 return;
             }
 
-
-            if(string.IsNullOrWhiteSpace(CourseInstructorName.Text)) 
+            if (string.IsNullOrWhiteSpace(CourseInstructorName.Text)) 
             {
                 await DisplayAlert("Missing Course Insructor Name", "Please enter a name for your course instructor.", "Ok");
                 return;
             }
 
-            //cIP2 = Convert.ToInt32(CourseInstructorPhone);
             /*
-            if (!Int32.TryParse(CourseInstructorPhone.Text, out tossedInt)) // check if this works due to string/int
+
+            if (CourseInstructorPhone == null)
             {
-                await DisplayAlert("Missing Course Insructor Number", "Please enter a number for your course instructor.", "Ok");
+                await DisplayAlert("Missing Course Instructor Phone Number", "Please Enter a number for your course Instructor.", "OK");
                 return;
             }
             */
+
+            if (string.IsNullOrWhiteSpace(CourseInstructorPhone.Text))
+            {
+                await DisplayAlert("Missing Course Instructor Phone Number", "Please Enter a number for your course Instructor.", "OK");
+                return;
+            }
+
             if (StartDatePicker.Date == EndDatePicker.Date)
             {
                 await DisplayAlert("Start date and End date cannot be the same day.", "Please change the dates.", "Ok");
@@ -136,12 +140,15 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            if (EndDatePicker.Date > StartDatePicker.Date)
+            if (StartDatePicker.Date > EndDatePicker.Date)
             {
                 await DisplayAlert("End date cannot be before Start date.", "Please change the dates.", "Ok");
+                return;
             }
 
-            await Databaseervice.UpdateCourses(Int32.Parse(CourseID.Text), CourseName.Text, StartDatePicker.Date, EndDatePicker.Date, CourseStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
+            
+
+            await DS.UpdateCourses(Int32.Parse(CourseID.Text), CourseName.Text, StartDatePicker.Date, EndDatePicker.Date, CourseStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
 
             await Navigation.PopAsync();
 
@@ -153,12 +160,15 @@ namespace C971_Isabella_Grigolla.Views
 
         async void ShareButton_Clicked(object sender, EventArgs e)
         {
-            var sharingText = CourseName.Text;
+            //var sharingText = CourseName.Text;
+            var notes = NotesFolders.Text;
 
             await Share.RequestAsync(new ShareTextRequest
             {
-                Text = sharingText,
-                Title = "Share Course info"
+                Text = notes,
+
+
+                Title = "Share course notes"
             });
 
         }
@@ -167,6 +177,16 @@ namespace C971_Isabella_Grigolla.Views
 
         async void AddAssessment_Clicked(object sender, EventArgs e)
         {
+            int countAssessments = await DS.GetAssessmentCountAsync(_selectedCourseId);
+
+            //string totalAssessments = countAssessments.ToString();
+
+
+            if (countAssessments == 2)
+            {
+                await DisplayAlert("Maximum number of assessments reached", "Please delete or edit the current assessments.", "Ok");
+                return;
+            }
             var courseId = Int32.Parse(CourseID.Text);
 
             await Navigation.PushAsync(new AssessmentAdd(courseId));

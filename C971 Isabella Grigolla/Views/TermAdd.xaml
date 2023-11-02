@@ -7,8 +7,11 @@
         <ToolbarItem x:Name="SaveTerm" Text="Save" Clicked="SaveTerm_Clicked" ></ToolbarItem>
         <ToolbarItem x:Name="CancelTerm" Text="Cancel" Clicked="CancelTerm_Clicked" ></ToolbarItem>
     </ContentPage.ToolbarItems>
-    
-    
+
+    <NavigationPage.TitleView>
+        <Label Text="Add a Term" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
         <StackLayout>
 
@@ -26,13 +29,15 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                
 
 
-                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black">Name:</Label>
                 <Entry Text="{Binding Name}" x:Name="TermName" Placeholder="Enter Term Name." FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
 
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black">Start Date:</Label>
                 <DatePicker Grid.Row="1" Grid.Column="1" x:Name="StartDatePicker" FontSize="Medium"></DatePicker>
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black">End Date:</Label>
                 <DatePicker Grid.Row="2" Grid.Column="1" x:Name="EndDatePicker" FontSize="Medium"></DatePicker>
 
             </Grid>

@@ -4,9 +4,14 @@
              x:Class="C971_Isabella_Grigolla.Views.CourseEdit">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="SaveCourse" Text="Save" Clicked="SaveCourse_Clicked"></ToolbarItem>
-        <ToolbarItem x:Name="CancelCourse" Text="Cancel" Clicked="CancelCourse_Clicked"></ToolbarItem>
+        <!--<ToolbarItem x:Name="CancelCourse" Text="Cancel" Clicked="CancelCourse_Clicked"></ToolbarItem>-->
         <ToolbarItem x:Name="DeleteCourse" Text="Delete" Clicked="DeleteCourse_Clicked"></ToolbarItem>
+        <ToolbarItem x:Name="AddAssessment" Text="Add Assessment" Clicked="AddAssessment_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <Label Text="Course Details" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
 
 
     <ContentPage.Content>
@@ -33,56 +38,59 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                
 
-                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Name:</Label>
                 <Entry Text="{Binding Name}" x:Name="CourseName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
-                <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
+                <Label Grid.Row="0" Grid.Column="2" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">ID</Label>
                 <Entry Text="{Binding ID}" x:Name="CourseID" Placeholder="Enter ID for this Course." Grid.Row="0" Grid.Column="3" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
 
 
-                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Status</Label>
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Status:</Label>
                 <Picker Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="CourseStatusPicker" Title="Set a Status" TitleColor="Navy">
                     <Picker.Items>
                         <x:String>In Progress</x:String>
                         <x:String>Completed</x:String>
-                        <x:String>Upcoming</x:String>
+                        <x:String>Plan to Take</x:String>
+                        <x:String>Dropped</x:String>
                     </Picker.Items>
                 </Picker>
 
-                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Start Date:</Label>
                 <DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker"></DatePicker>
 
-                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">End Date:</Label>
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
 
-                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor</Label>
+                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor:</Label>
                 <Label Text="{Binding CourseInstrucorName}" FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
-                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Coruse Instructor Phone:</Label>
+                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor Phone:</Label>
                 <Label Text="{Binding CourseInstrucorPhone}" FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
 
-                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor Email</Label>
+                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor Email:</Label>
                 <Label Text="{Binding CourseInstrucorEmail}" FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
 
 
-                <Label Grid.Row="7" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Notes</Label>
+                <Label Grid.Row="7" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Notes:</Label>
                 <Editor Grid.Row="7" Grid.Column="1" x:Name="NotesFolders" Placeholder="Enter your notes here"></Editor>
 
-                <Label Grid.Row="8" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Share</Label>
-                <Button Grid.Row="8" Grid.Column="1" FontSize="Medium" VerticalOptions="Center" Text="Share" Font="Medium" x:Name="ShareButton" Clicked="ShareButton_Clicked"></Button>
+                <Label Grid.Row="8" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Notification" TextColor="Black" />
+                <Switch Grid.Row="8" Grid.Column="1" x:Name="Notifications" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center"/>
 
-                <Label Grid.Row="9" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Notification" />
-                <Switch Grid.Row="9" Grid.Column="1" x:Name="Notifications" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center"/>
+                <Label Grid.Row="9" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Share</Label>
+                <Button Grid.Row="9" Grid.Column="1" FontSize="Medium" VerticalOptions="Center" Text="Share" Font="Medium" x:Name="ShareButton" Clicked="ShareButton_Clicked"></Button>
 
 
             </Grid>
 
-            <Label Text="Assessment Count:" FontSize="Large"></Label> <Label x:Name="CountLabel" FontSize="Large"></Label>
+           
             
-            <Button x:Name="AddAssessment" Text="Add Assessments" Clicked="AddAssessment_Clicked"></Button>
+            <!--<Button x:Name="AddAssessment" Text="Add Assessments" Clicked="AddAssessment_Clicked"></Button>-->
 
+
+            <Label Text="Associated Assessments" FontSize="Large"></Label>
 
             <CollectionView x:Name="AssessmentCollectionView"
                             ItemsSource="{Binding CourseAssessments}"

@@ -7,10 +7,12 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="SaveAssessment" Text="Save" Clicked="SaveAssessment_Clicked"></ToolbarItem>
         <ToolbarItem x:Name="CancellAssessment" Text="Cancel" Clicked="CancellAssessment_Clicked"></ToolbarItem>
-        <ToolbarItem x:Name="Home" Text="Home" Clicked="Home_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    
-    
+
+    <NavigationPage.TitleView>
+        <Label Text="Add an Assessment" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
         <StackLayout>
             <Grid  Padding="3" RowSpacing="2" ColumnSpacing="11" BackgroundColor="LightGray">
@@ -35,14 +37,14 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                
 
-                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Name:</Label>
                 <Entry Text="{Binding Name}"
 x:Name="AssessmentName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
 
-                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Type of Assessment</Label>
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Type:</Label>
                 <Picker Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="AssessmentTypePicker"
  Title="Set a Status"
  TitleColor="Navy">
@@ -53,13 +55,13 @@ x:Name="AssessmentName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalT
                     </Picker.Items>
                 </Picker>
 
-                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Start Date:</Label>
                 <DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker"></DatePicker>
 
-                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">End Date:</Label>
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></DatePicker>
 
-                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Notification" />
+                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" Text="Notification" TextColor="Black"/>
                 <Switch Grid.Row="4" Grid.Column="1" x:Name="Notifications" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center"/>
 
 

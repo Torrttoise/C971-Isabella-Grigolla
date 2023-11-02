@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638344756113969382
+_nugetassetstimestamp=638345239409418286
 typemapkind=strings-asm
 androidsupportedabis=armeabi-v7a
 x86
 x86_64
 arm64-v8a
 androidmanifestplaceholders=
-projectfullpath=c:\users\bellg\source\repos\c971 isabella grigolla\c971 isabella grigolla.android\c971 isabella grigolla.android.csproj
+projectfullpath=c:\users\bellg\onedrive\documents\c971-isabella-grigolla\c971 isabella grigolla.android\c971 isabella grigolla.android.csproj

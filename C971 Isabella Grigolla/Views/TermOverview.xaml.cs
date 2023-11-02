@@ -25,7 +25,7 @@ namespace C971_Isabella_Grigolla.Views
             //this.refresh();
         }
 
-        private readonly int _selectedTerm;
+        //private readonly int _selectedTerm;
 
         protected override async void OnAppearing()
         {
@@ -34,7 +34,7 @@ namespace C971_Isabella_Grigolla.Views
 
             if (SettingC971.FirstTimeRunning)
             {
-                Databaseervice.LoadSampleData();
+                DS.LoadSampleContent();
                 SettingC971.FirstTimeRunning = false;
 
 
@@ -43,9 +43,9 @@ namespace C971_Isabella_Grigolla.Views
 
             }
 
-            Terms.ItemsSource = await Databaseervice.GetTerms();
+            Terms.ItemsSource = await DS.GetTerms();
 
-            var classList = await Databaseervice.GetCourses();
+            var classList = await DS.GetCourses();
             var notifyR = new Random();
             var notifyId = notifyR.Next(1000);
 
@@ -55,13 +55,18 @@ namespace C971_Isabella_Grigolla.Views
                 {
                     if (courseR.StartDate == DateTime.Today)
                     {
-                        CrossLocalNotifications.Current.Show("Alert", $"{courseR.Name} begins today.", notifyId);
+                        CrossLocalNotifications.Current.Show("WGU Notification", $"{courseR.Name} begins today.", notifyId);
+                    }
+
+                    if (courseR.EndDate == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("WGU Notification", $"{courseR.Name} ends today.", notifyId);
                     }
                 }
             }
 
             
-            var assessmentList = await Databaseervice.GetAssessment();
+            var assessmentList = await DS.GetAssessment();
             var notifyRA = new Random();
             var notifyIdR = notifyRA.Next(1000);
 
@@ -71,7 +76,11 @@ namespace C971_Isabella_Grigolla.Views
                 {
                     if (assessmentsR.StartDate == DateTime.Today)
                     {
-                        CrossLocalNotifications.Current.Show("Alert", $"{assessmentsR.Name} is today!", notifyIdR);
+                        CrossLocalNotifications.Current.Show("WGU Notification", $"{assessmentsR.Name} begins today!", notifyIdR);
+                    }
+                    if (assessmentsR.EndDate == DateTime.Today)
+                    {
+                        CrossLocalNotifications.Current.Show("WGU Notification", $"{assessmentsR.Name} ends today!", notifyIdR);
                     }
                 }
             }

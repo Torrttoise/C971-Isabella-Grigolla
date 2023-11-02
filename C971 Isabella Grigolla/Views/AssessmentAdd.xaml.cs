@@ -30,14 +30,20 @@ namespace C971_Isabella_Grigolla.Views
 
         private async void SaveAssessment_Clicked(object sender, EventArgs e)
         {
-            decimal tossedDecimal;
-            int tossedInt;
+            
 
             if (string.IsNullOrWhiteSpace(AssessmentName.Text))
             {
                 await DisplayAlert("Missing Name", "Please Enter a name for the Assessment.", "OK");
                 return;
             }
+
+            if (AssessmentTypePicker.SelectedItem == null)
+            {
+                await DisplayAlert("Missing Type", "Please select a value", "OK");
+                return;
+            }
+
 
             if (StartDatePicker.Date == EndDatePicker.Date)
             {
@@ -51,7 +57,8 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.AddAssessment(_selectedCourseId, AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), Notifications.IsToggled);
+            
+            await DS.AddAssessment(_selectedCourseId, AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), Notifications.IsToggled);
 
             await Navigation.PopAsync();
 
@@ -75,9 +82,6 @@ namespace C971_Isabella_Grigolla.Views
 
 
 
-        private async void Home_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopToRootAsync();
-        }
+  
     }
 }

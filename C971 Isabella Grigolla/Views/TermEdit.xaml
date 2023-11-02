@@ -4,10 +4,16 @@
              x:Class="C971_Isabella_Grigolla.Views.TermEdit">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" x:Name="SaveTerm" Clicked="SaveTerm_OnClicked" ></ToolbarItem>
-        <ToolbarItem Text="Cancel" x:Name="CancelTerm" Clicked="CancelTerm_Clicked"></ToolbarItem>
+        <!--<ToolbarItem Text="Cancel" x:Name="CancelTerm" Clicked="CancelTerm_Clicked"></ToolbarItem>-->
         <ToolbarItem Text="Delete" x:Name="DeleteTerm" Clicked="DeleteTerm_Clicked"></ToolbarItem>
+        <ToolbarItem Text="Add Course" x:Name="addCourseTool" Clicked="AddCourse_OnClicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    
+
+    <NavigationPage.TitleView>
+        <Label Text="Term Details" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
+
+
     <ContentPage.Content>
         <StackLayout>
 
@@ -28,27 +34,29 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                
 
 
-                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black">Name:</Label>
                 <Entry Text="{Binding Name}" x:Name="TermName" Placeholder="Enter Term Name." FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
 
-                <Label  FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" IsVisible="False">ID</Label>
+                <Label  FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" IsVisible="False" TextColor="Black">ID:</Label>
                 <Entry Text="{Binding ID}" x:Name="TermID" Placeholder="Enter Term ID."  VerticalTextAlignment="Center" IsReadOnly="True" IsVisible="False"></Entry>
 
-                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Start Date</Label>
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black">Start Date:</Label>
                 <DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker" FontSize="Medium"></DatePicker>
-                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">End Date</Label>
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black">End Date:</Label>
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker" FontSize="Medium"></DatePicker>
 
             </Grid>
-
-            <Button x:Name="AddCourse" Text="Add Courses" Clicked="AddCourse_OnClicked"></Button>
-                
-                
             
-           
+            
+
+            <!--<Button x:Name="AddCourse" Text="Add Courses" Clicked="AddCourse_OnClicked"></Button>-->
+
+
+            <Label Text="Associated Courses" FontSize="Large"></Label>
+
 
 
 
@@ -89,29 +97,29 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+                                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Name:</Label>
                                 <Label Text="{Binding Name}"
                                        x:Name="ClassName" FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" />
 
 
-                                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Status</Label>
+                                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Status:</Label>
                                 <Label Text="{Binding Status}" Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="ClassStatusPicker"></Label>
 
-                                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Start Date:</Label>
                                 <Label Text="{Binding StartDate}" Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker"></Label>
 
-                                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">End Date:</Label>
                                 <Label Text="{Binding EndDate}" Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker"></Label>
 
-                                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor</Label>
+                                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor:</Label>
                                 <Label  Text="{Binding CourseInstructorName}"
                                        FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Coruse Instructor Phone:</Label>
+                                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor Phone:</Label>
                                 <Label Text="{Binding CourseInstructorPhone}"
                                         FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
 
-                                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Instructor Email</Label>
+                                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor Email:</Label>
                                 <Label Text="{Binding CourseInstructorEmail}"
                                         FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WjMpfm0NGWxjk2B8r2C9P26WyV70jXEr8XGUHjKeV7a00eBVjM1FUhZ2kmFcNF3Oa/NZ5hV+umA9+uayIVlb8A==",
+  "dgSpecHash": "kt1DcT7G5d3K8a9TPDMEB1BCNsov3RWf+OHDgSdWllnLDS9Z++gjsjQykHOTMUcGY+BetPOkLX01r4whWUXNzw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla.iOS\\C971 Isabella Grigolla.iOS.csproj",
+  "projectFilePath": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla.iOS\\C971 Isabella Grigolla.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bellg\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\bellg\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

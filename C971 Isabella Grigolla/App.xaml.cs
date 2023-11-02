@@ -17,7 +17,7 @@ namespace C971_Isabella_Grigolla
 
             if(SettingC971.FirstTimeRunning) 
             { 
-                Databaseervice.LoadSampleData();
+                DS.LoadSampleContent();
                 SettingC971.FirstTimeRunning = false;
             }
 

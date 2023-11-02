@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LoYrPjobTPoX3W6V+9tp4m/1DmZPX6EfKbtjrj5q2QE9cVjv01mp//Tx7Xf+jg9FUjfhcaG/aX3wYTkxPzt9MQ==",
+  "dgSpecHash": "b98vP90DcDlxT4JpVwV09+JECPSIkMmDWGg8ss+/Lu9XC4ogXvDG8wxJoq+WSA5pxUl0zYYmZrQ9iy1UVShQlQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla\\C971 Isabella Grigolla.csproj",
+  "projectFilePath": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla\\C971 Isabella Grigolla.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bellg\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\bellg\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

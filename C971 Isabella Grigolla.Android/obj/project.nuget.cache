@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "egvoerm2rG5+G31tj9ReWOb0R4GWRsnpjdEBcd/BwKwfsC3PSPOv2x4T7CQY4sm9MrAVGkCSotUP1ibxQ7AO6w==",
+  "dgSpecHash": "mdbf+0R+UEXKYwgp7z8KUGkbMnz7HlpSUMuhI/r7IugQfv+iOtjdMRmGlNCJRU35FzdNZOsXr0aJ9piqNHBlLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla.Android\\C971 Isabella Grigolla.Android.csproj",
+  "projectFilePath": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla.Android\\C971 Isabella Grigolla.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bellg\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\bellg\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

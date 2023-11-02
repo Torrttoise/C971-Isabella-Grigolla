@@ -28,7 +28,7 @@ namespace C971_Isabella_Grigolla.Views
 
             if (SettingC971.FirstTimeRunning)
             {
-               Databaseervice.LoadSampleData();
+               DS.LoadSampleContent();
                SettingC971.FirstTimeRunning = false;
 
 
@@ -45,7 +45,7 @@ namespace C971_Isabella_Grigolla.Views
 
 
 
-            await Databaseervice.WipeSampleData();
+            await DS.WipeSampleData();
         }
 
        

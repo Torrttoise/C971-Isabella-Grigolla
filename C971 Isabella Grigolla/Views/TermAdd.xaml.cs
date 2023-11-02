@@ -29,7 +29,7 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.AddTerm(TermName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()));
+            await DS.AddTerm(TermName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()));
 
             await Navigation.PopAsync();
         }

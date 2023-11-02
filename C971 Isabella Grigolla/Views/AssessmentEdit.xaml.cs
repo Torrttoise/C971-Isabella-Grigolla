@@ -15,6 +15,9 @@ namespace C971_Isabella_Grigolla.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AssessmentEdit : ContentPage
     {
+
+        private readonly int _selectedAssessmentId;
+
         public AssessmentEdit()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace C971_Isabella_Grigolla.Views
         {
             InitializeComponent();
 
+            _selectedAssessmentId = selectedAssessment.Id;
 
             AssessmentId.Text = selectedAssessment.Id.ToString();
             AssessmentName.Text = selectedAssessment.Name;
@@ -35,11 +39,7 @@ namespace C971_Isabella_Grigolla.Views
 
         private async void SaveAssessment_Clicked(object sender, EventArgs e)
         {
-            decimal tossedDecimal;
-            int tossedInt;
-            //tossedDecimal = 0;
-            //int cIP2;
-
+            
 
             if (string.IsNullOrWhiteSpace(AssessmentName.Text))
             {
@@ -47,13 +47,13 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(AssessmentTypePicker.SelectedItem.ToString()))
+            if (AssessmentTypePicker.SelectedItem == null)
             {
-                await DisplayAlert("Missing Assessment Type", "Please select a type for this Assessment.", "Ok");
+                await DisplayAlert("Missing Type", "Please select a value", "OK");
                 return;
             }
 
-           
+
             if (StartDatePicker.Date == EndDatePicker.Date)
             {
                 await DisplayAlert("Start date and End date cannot be the same day.", "Please change the dates.", "Ok");
@@ -66,7 +66,9 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.UpdateAssessment(Int32.Parse(AssessmentId.Text), AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), StartDatePicker.Date, EndDatePicker.Date, Notifications.IsToggled);
+            
+
+            await DS.UpdateAssessment(Int32.Parse(AssessmentId.Text), AssessmentName.Text, AssessmentTypePicker.SelectedItem.ToString(), StartDatePicker.Date, EndDatePicker.Date, Notifications.IsToggled);
 
             await Navigation.PopAsync();
         }
@@ -84,7 +86,7 @@ namespace C971_Isabella_Grigolla.Views
             {
                 var id = int.Parse(AssessmentId.Text);
 
-                await Databaseervice.RemoveCourse(id);
+                await DS.RemoveAssessment(id);
 
                 await DisplayAlert("Assessment has been deleted.", "Assessment has been deleted.", "Ok");
 
@@ -96,6 +98,7 @@ namespace C971_Isabella_Grigolla.Views
             }
 
             await Navigation.PopAsync();
+
         }
     }
 }

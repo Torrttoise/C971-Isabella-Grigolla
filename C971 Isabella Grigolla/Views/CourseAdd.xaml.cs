@@ -33,8 +33,6 @@ namespace C971_Isabella_Grigolla.Views
 
         private async void SaveCourse_Clicked(object sender, EventArgs e)
         {
-            decimal tossedDecimal;
-            int tossedInt;
 
             if (string.IsNullOrWhiteSpace(ClassName.Text))
             {
@@ -42,7 +40,7 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(ClassStatusPicker.SelectedItem.ToString()))
+            if (ClassStatusPicker.SelectedItem == null)
             {
                 await DisplayAlert("Missing Status", "Please select a value", "OK");
                 return;
@@ -53,21 +51,22 @@ namespace C971_Isabella_Grigolla.Views
                 await DisplayAlert("Missing Course Instructor Name", "Please Enter a name for your course Instructor.", "OK");
                 return;
             }
+            /*
 
             if (CourseInstructorPhone == null)
             {
                 await DisplayAlert("Missing Course Instructor Phone Number", "Please Enter a number for your course Instructor.", "OK");
                 return;
             }
-            /*
-            if (!Int32.TryParse(CourseInstructorPhone.Text, out tossedInt))
+            */
+
+            if (string.IsNullOrWhiteSpace(CourseInstructorPhone.Text))
             {
                 await DisplayAlert("Missing Course Instructor Phone Number", "Please Enter a number for your course Instructor.", "OK");
                 return;
             }
-            */
 
-            if(StartDatePicker.Date == EndDatePicker.Date)
+            if (StartDatePicker.Date == EndDatePicker.Date)
             {
                 await DisplayAlert("Start date and End date cannot be the same day.", "Please change the dates.", "Ok");
                 return;
@@ -84,7 +83,7 @@ namespace C971_Isabella_Grigolla.Views
                 return;
             }
 
-            await Databaseervice.AddCourse(_selectedTermId, ClassName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), ClassStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
+            await DS.AddCourse(_selectedTermId, ClassName.Text, DateTime.Parse(StartDatePicker.Date.ToString()), DateTime.Parse(EndDatePicker.Date.ToString()), ClassStatusPicker.SelectedItem.ToString(), CourseInstructorName.Text, CourseInstructorPhone.Text, CourseInstructorEmail.Text, NotesFolders.Text, Notifications.IsToggled);
 
             await Navigation.PopAsync();
         }
@@ -94,9 +93,6 @@ namespace C971_Isabella_Grigolla.Views
             await Navigation.PopAsync();
         }
 
-        private async void Home_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopToRootAsync();
-        }
+        
     }
 }

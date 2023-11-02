@@ -2271,11 +2271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla.Android\\C971 Isabella Grigolla.Android.csproj",
+      "projectUniqueName": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla.Android\\C971 Isabella Grigolla.Android.csproj",
       "projectName": "C971 Isabella Grigolla.Android",
-      "projectPath": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla.Android\\C971 Isabella Grigolla.Android.csproj",
+      "projectPath": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla.Android\\C971 Isabella Grigolla.Android.csproj",
       "packagesPath": "C:\\Users\\bellg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla.Android\\obj\\",
+      "outputPath": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2296,8 +2296,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla\\C971 Isabella Grigolla.csproj": {
-              "projectPath": "C:\\Users\\bellg\\source\\repos\\C971 Isabella Grigolla\\C971 Isabella Grigolla\\C971 Isabella Grigolla.csproj"
+            "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla\\C971 Isabella Grigolla.csproj": {
+              "projectPath": "C:\\Users\\bellg\\OneDrive\\Documents\\C971-Isabella-Grigolla\\C971 Isabella Grigolla\\C971 Isabella Grigolla.csproj"
             }
           }
         }
