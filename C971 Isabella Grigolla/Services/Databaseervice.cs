@@ -326,7 +326,7 @@ namespace C971_Isabella_Grigolla.Services
                         Name = "Course 2",
                         StartDate = DateTime.Now.AddMonths(2),
                         EndDate = DateTime.Now.AddMonths(3),
-                        Status = "Planned",
+                        Status = "Upcoming",
                         CourseInstructorId = 3,
                         CourseInstructorName = "Isabella Grigolla",
                         CourseInstructorPhone = "626-253-7474",
@@ -434,9 +434,9 @@ namespace C971_Isabella_Grigolla.Services
                     {
                         TermId = term1.Id,
                         Name = "Course 5",
-                        StartDate = DateTime.Now.AddMonths(2) ,   ////Test of negative addition to add months.
+                        StartDate = DateTime.Now.AddMonths(2) ,
                         EndDate = DateTime.Now.AddMonths(3),
-                        Status = "Completed",
+                        Status = "Upcoming",
                         CourseInstructorId = 3,
                         CourseInstructorName = "Isabella Grigolla",
                         CourseInstructorPhone = "626-253-7474",
@@ -471,9 +471,9 @@ namespace C971_Isabella_Grigolla.Services
             {
                 TermId = term1.Id,
                 Name = "Course 6",
-                StartDate = DateTime.Now.AddMonths(3),   ////Test of negative addition to add months.
+                StartDate = DateTime.Now.AddMonths(3),
                 EndDate = DateTime.Now.AddMonths(3),
-                Status = "Completed",
+                Status = "Upcoming",
                 CourseInstructorId = 3,
                 CourseInstructorName = "Isabella Grigolla",
                 CourseInstructorPhone = "626-253-7474",

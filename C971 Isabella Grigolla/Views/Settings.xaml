@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_Isabella_Grigolla.Views.AppSettings">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="ClearSettings" Text="Clear Settings" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center" Clicked="ClearSettings_Clicked"></Button>
+            <Button x:Name="LoadSampleContent" Text="Load Sample Content" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center" Clicked="LoadSampleContent_Clicked"></Button>
+            <Button x:Name="WipeSampleContent" Text="Wipe Sample Content" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center" Clicked="WipeSampleContent_Clicked"></Button>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
