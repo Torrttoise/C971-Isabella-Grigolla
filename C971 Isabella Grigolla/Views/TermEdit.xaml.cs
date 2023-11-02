@@ -25,7 +25,7 @@ namespace C971_Isabella_Grigolla.Views
 
 			int countCourses = await Databaseervice.GetCourseCountAsync(_selectedTermId);
 
-			CountLabel.Text = countCourses.ToString();
+			//CountLabel.Text = countCourses.ToString();
 
 			CourseCollectionView.ItemsSource = await Databaseervice.GetCourses(_selectedTermId);
 

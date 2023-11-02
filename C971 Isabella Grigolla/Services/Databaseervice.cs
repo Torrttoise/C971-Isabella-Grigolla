@@ -481,6 +481,7 @@ namespace C971_Isabella_Grigolla.Services
 
             };
             await _datab.InsertAsync(course6);
+
             CourseAssessments assessment11 = new CourseAssessments
             {
                 CourseId = course5.Id,

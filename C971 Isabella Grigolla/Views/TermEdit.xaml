@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="LightGray">
+            <Grid Padding="3" RowSpacing="2" ColumnSpacing="11" BackgroundColor="LightGray">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -23,16 +23,20 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
 
                 <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
                 <Entry Text="{Binding Name}" x:Name="TermName" Placeholder="Enter Term Name." FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
 
-                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
-                <Entry Text="{Binding ID}" x:Name="TermID" Placeholder="Enter Term ID." Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"></Entry> 
+                <Label  FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold" IsVisible="False">ID</Label>
+                <Entry Text="{Binding ID}" x:Name="TermID" Placeholder="Enter Term ID."  VerticalTextAlignment="Center" IsReadOnly="True" IsVisible="False"></Entry>
 
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Start Date</Label>
                 <DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartDatePicker" FontSize="Medium"></DatePicker>
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">End Date</Label>
                 <DatePicker Grid.Row="3" Grid.Column="1" x:Name="EndDatePicker" FontSize="Medium"></DatePicker>
 
             </Grid>
@@ -41,9 +45,7 @@
                 
                 
             
-            <Label Text="Class Count:" FontSize="Large"></Label> <Label x:Name="CountLabel" FontSize="Large"></Label>
-            
-            <Label x:Name="LabelList" Text="List of Classes" FontSize="Large" FontAttributes="Bold"></Label>
+           
 
 
 
@@ -63,7 +65,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Grid Padding="5" RowSpacing="1" ColumnSpacing="11" BackgroundColor="LightSlateGray">
+                            <Grid  Padding="3" RowSpacing="2" ColumnSpacing="11" BackgroundColor="LightSlateGray">
 
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
