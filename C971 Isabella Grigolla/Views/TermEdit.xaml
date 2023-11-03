@@ -115,13 +115,7 @@
                                 <Label  Text="{Binding CourseInstructorName}"
                                        FontSize="Medium" Grid.Row="4" Grid.Column="1" x:Name="CourseInstructorName"/>
 
-                                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor Phone:</Label>
-                                <Label Text="{Binding CourseInstructorPhone}"
-                                        FontSize="Medium" Grid.Row="5" Grid.Column="1" x:Name="CourseInstructorPhone"/>
-
-                                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" TextColor="Black">Course Instructor Email:</Label>
-                                <Label Text="{Binding CourseInstructorEmail}"
-                                        FontSize="Medium" Grid.Row="6" Grid.Column="1" x:Name="CourseInstructorEmail"/>
+                               
 
                             </Grid>
                         </StackLayout>
