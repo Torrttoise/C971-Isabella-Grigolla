@@ -27,11 +27,11 @@ namespace C971_Isabella_Grigolla.Services
                 return;
             }
 
-            var pathOfDataBase = Path.Combine(FileSystem.AppDataDirectory, "TermInfo.db");
+            var pathOfDB = Path.Combine(FileSystem.AppDataDirectory, "TermInfo.db");
 
 
-            _datab = new SQLiteAsyncConnection(pathOfDataBase);
-            _databConnection = new SQLiteConnection(pathOfDataBase);
+            _datab = new SQLiteAsyncConnection(pathOfDB);
+            _databConnection = new SQLiteConnection(pathOfDB);
 
             await _datab.CreateTableAsync<Term>();
             await _datab.CreateTableAsync<CourseView>();
